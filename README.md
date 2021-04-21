@@ -1,15 +1,17 @@
 # Way-to-Coding
 
-# languages
+## languages
 
-# Concepts and Contents
+#### C
+#### C++
+#### Python
+#### Java
+#### Javascript
+#### PHP
+#### HTML5
 
-C
-C++
-Python
-Java
-Javascript
-PHP
-HTML5
+## Concepts and Contents
 
-1.Hallo world programme
+
+
+#### 1.Hallo world programme
