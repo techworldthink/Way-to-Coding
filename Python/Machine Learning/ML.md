@@ -2,12 +2,12 @@
 
 ### Data Types
 #### 1.Numerical
-##### Discrete Data
-- numbers that are limited to integers. Example: The number of cars passing by.
+#####   Discrete Data
+-   numbers that are limited to integers. Example: The number of cars passing by.
     <br />
-##### Continuous Data
-- numbers that are of infinite value. Example: The price of an item, or the size of an item
+#####   Continuous Data
+-   numbers that are of infinite value. Example: The price of an item, or the size of an item
 #### 2.Categorical
-data are values that cannot be measured up against each other. Example: a color value, or any yes/no values.
+    data are values that cannot be measured up against each other. Example: a color value, or any yes/no values.
 #### 3.Ordinal
-data are like categorical data, but can be measured up against each other. Example: school grades where A is better than B and so on.
+    data are like categorical data, but can be measured up against each other. Example: school grades where A is better than B and so on.
