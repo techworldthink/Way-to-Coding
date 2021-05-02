@@ -19,11 +19,11 @@
     To calculate the mean, find the sum of all values, and divide the sum by the number of values:
 
     (99+86+87+88+111+86+103+87+94+78+77+85+86) / 13 = 89.77
-#### 1.Median
+#### 2.Median
     The median value is the value in the middle, after you have sorted all the values:
 
     77, 78, 85, 86, 86, 86, 87, 87, 88, 94, 99, 103, 111
-#### 1.Mode
+#### 3.Mode
     The Mode value is the value that appears the most number of times:
 
     99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86 = 86
