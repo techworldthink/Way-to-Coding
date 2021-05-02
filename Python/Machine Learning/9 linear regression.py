@@ -1,18 +1,18 @@
-import numpy
 import matplotlib.pyplot as plt
+from scipy import stats
 
-x = numpy.random.normal(5.0, 1.0, 100000)
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
+y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
 
-plt.hist(x, 100)
+slope, intercept, r, p, std_err = stats.linregress(x, y)
+
+def myfunc(x):
+  return slope * x + intercept
+
+mymodel = list(map(myfunc, x))
+
+plt.scatter(x, y)
+plt.plot(x, mymodel)
 plt.show()
 
-"""
-We use the array from the numpy.random.normal() method, with 100000 values,  to draw a histogram with 100 bars.
 
-We specify that the mean value is 5.0, and the standard deviation is 1.0.
-
-Meaning that the values should be concentrated around 5.0, and rarely further away than 1.0 from the mean.
-
-And as you can see from the histogram, most values are between 4.0 and 6.0, with a top at approximately 5.0.
-
-"""
