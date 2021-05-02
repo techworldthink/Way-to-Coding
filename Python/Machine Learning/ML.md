@@ -44,7 +44,7 @@
     0.9
 
     Meaning that most of the values are within the range of 0.9 from the mean value, which is 86.4.
-#### Variance
+### Variance
     Variance is another number that indicates how spread out the values are.
 
     In fact, if you take the square root of the variance, you get the standard deviation!
