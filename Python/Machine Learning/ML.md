@@ -89,3 +89,12 @@
     ages = [5,31,43,48,50,41,7,11,15,39,80,82,32,2,8,6,25,36,27,61,31]
 
     What is the 75. percentile? The answer is 43, meaning that 75% of the people are 43 or younger.
+
+### Regression
+    The term regression is used when you try to find the relationship between variables.
+
+    In Machine Learning, and in statistical modeling, that relationship is used to predict the outcome of future events
+-   Linear Regression
+    Linear regression uses the relationship between the data-points to draw a straight line through all them.
+
+    This line can be used to predict future values.
