@@ -99,3 +99,12 @@
     Linear regression uses the relationship between the data-points to draw a straight line through all them.
 
     This line can be used to predict future values.
+
+-   R for Relationship
+    It is important to know how the relationship between the values of the x-axis and the values of the y-axis is, if there are no relationship the linear regression can not be used to predict anything.
+
+    This relationship - the coefficient of correlation - is called r.
+
+    The r value ranges from -1 to 1, where 0 means no relationship, and 1 (and -1) means 100% related.
+
+    Python and the Scipy module will compute this value for you, all you have to do is feed it with the x and y values.
