@@ -3,7 +3,8 @@
 ### Data Types
 #### Numerical
 Discrete Data
-- numbers that are limited to integers. Example: The number of cars passing by.<br />
+- numbers that are limited to integers. Example: The number of cars passing by.
+    <br />
 Continuous Data
 - numbers that are of infinite value. Example: The price of an item, or the size of an item
 #### Categorical
