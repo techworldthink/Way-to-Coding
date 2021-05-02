@@ -1,5 +1,5 @@
 ## Create a folder with your name on it.Implement these tasks inside your folder.
-### JAVASCRIPT Tasks
+### JAVASCRIPT Tasks 1
 
 - [x] 1.Hello world
 - [x] 2.Data types
