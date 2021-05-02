@@ -15,3 +15,5 @@ print(c)
 # dtype -Desired data type of array, optional
 d = np.array([1, 2, 3], dtype = complex) 
 print(d)
+
+print(d[1])
