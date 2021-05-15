@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : BASICS-OF-C.c
+ Name        : SAMPLE-INPUT-OUTPUT.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
@@ -12,8 +12,10 @@
 #include <stdlib.h>
 
 int main(void) {
-	printf("!!!Hello \nI am new to learning C programming!!!");
-	printf("\nI am really excited to learn C");/* prints !!!Hello World!!! */
-	printf("\nHope I could learn it in its whole glory");
+	int num;
+	setbuf(stdout, NULL);
+	printf("Enter a number:");
+	scanf("%d", &num);
+	printf("The number you have entered is %d", num);
 	return EXIT_SUCCESS;
 }
