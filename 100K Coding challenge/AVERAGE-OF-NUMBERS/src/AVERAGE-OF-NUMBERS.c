@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : SUM-OF-TWO-NUMBERS.c
+ Name        : AVERAGE-OF-NUMBERS.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
@@ -12,11 +12,11 @@
 #include <stdlib.h>
 
 int main(void) {
-	int num1, num2, result;
+	float num1, num2, num3, avg;
 	setbuf(stdout, NULL);
-	printf("Enter two numbers");
-	scanf("%d%d", &num1, &num2);
-	result = num1 + num2;
-	printf("The sum of two numbers you entered is : %d", result);
+	printf("Enter any three numbers to find their average : ");
+	scanf("%f%f%f", &num1, &num2, &num3);
+	avg = (num1+num2+num3)/3;
+	printf("The average of three numbers is : %f", avg);
 	return EXIT_SUCCESS;
 }
