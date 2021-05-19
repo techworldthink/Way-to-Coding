@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : 18STAR-PATTERN-NESTED-FOR-LOOP.c
+ Name        : 19-ARRAYS-SIMPLE-INPUT.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
@@ -12,22 +12,15 @@
 #include <stdlib.h>
 
 int main(void) {
-	int n, i, j;
+	int i, a[5];
 	setbuf(stdout, NULL);
-	printf("Enter the number of rows required:");
-	scanf("%d", &n);
-	for (i=1; i<=n; i++) {
-		for (j=0; j<i; j++) {
-			printf("* ");
-		}
-		printf("\n");
+	printf("Enter 5 values to be stored in the array :");
+	for (i=0; i<5; i++) {
+		scanf("%d", &a[i]);
 	}
-	printf("\n\n\n");
-	for (i=1; i<=n; i++) {
-		for (j=n; j>=i; j--) {
-			printf("* ");
-		}
-		printf("\n");
+	printf("Entered values are:-\n");
+	for (i=0; i<5; i++) {
+		printf("%d\t", a[i]);
 	}
 	return EXIT_SUCCESS;
 }

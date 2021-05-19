@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : 18STAR-PATTERN-NESTED-FOR-LOOP.c
+ Name        : 20-ARRAYS-OF-VARYING-SIZE-INPUT.c
  Author      : 
  Version     :
  Copyright   : Your copyright notice
@@ -12,22 +12,19 @@
 #include <stdlib.h>
 
 int main(void) {
-	int n, i, j;
+	int i, size;
 	setbuf(stdout, NULL);
-	printf("Enter the number of rows required:");
-	scanf("%d", &n);
-	for (i=1; i<=n; i++) {
-		for (j=0; j<i; j++) {
-			printf("* ");
-		}
-		printf("\n");
+	printf("Enter the array size:");
+	scanf("%d", &size);
+	char a[size];
+	setbuf(stdout, NULL);
+	printf("Enter the names to be inserted to the array");
+	for (i=0; i<size; i++) {
+		scanf("%d", &a[i]);
 	}
-	printf("\n\n\n");
-	for (i=1; i<=n; i++) {
-		for (j=n; j>=i; j--) {
-			printf("* ");
-		}
-		printf("\n");
+	printf("The values in the array are:\n");
+	for (i=0; i<size; i++) {
+		printf("%d\t", a[i]);
 	}
 	return EXIT_SUCCESS;
 }
