@@ -16,9 +16,6 @@ int fact (int n) ;
 int fact (int n) {
 
 	int f = 1;
-	/*for(i=1; i<=n; i++) {
-	}*/
-
 	if (n!=1) {                 //Why this condition ?? To ensure that when we go on finding factorial of previous numbers
 		f = n*fact(n-1);        //there should not be a case when n-1 = 0
 		return f;				//To prevent n-1 = 0, we should stop before n = 1
