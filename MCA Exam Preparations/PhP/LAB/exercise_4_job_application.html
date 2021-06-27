@@ -1,0 +1,135 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        marquee {
+            margin-top: 1em;
+            font-size: larger;
+            margin-left: 10%;
+            margin-right: 10%;
+            color: red;
+        }
+
+        b {
+            background-color: yellow;
+        }
+
+        table {
+            margin-top: 1em;
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2em;
+           background-color: lightgray;
+        }
+
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        input {
+            /*width:100%;*/
+            border: 1 px solid gray;
+            /*border-radius: 10px;*/
+        }
+    </style>
+</head>
+
+<body>
+    <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="10" ><b>WELCOME TO FRESHERS WORLD !!! </b></marquee>
+    <form>
+        <table>
+            <tr>
+                <th colspan="3">REGISTRATION FORM </th>
+            </tr>
+            <tr>
+                <td>NAME</td>
+                <td colspan="2"><input type="text"></td>
+            </tr>
+            <tr>
+                <td>AGE</td>
+                <td colspan="2">
+                    <select>
+                        <option>SELECT</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>PASSWORD</td>
+                <td colspan="2"><input type="password"></td>
+            </tr>
+            <tr>
+                <td>RETYPE PASSWORD</td>
+                <td colspan="2"><input type="password"></td>
+            </tr>
+            <tr>
+                <td rowspan="4">SELECT YOUR SECURITY QUESTION</td>
+                <td colspan="2"><input type="radio" name="security">What is your pet name?</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="security">Who is your best friend?</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="security">What is your favourite color?</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="radio" name="security">Who is your favourite teacher?</td>
+            </tr>
+            <tr>
+                <td>ANSWER OF SECURITY QUESTION</td>
+                <td colspan="2"><input type="text"> </td>
+            </tr>
+            <tr>
+                <td>EMAIL ID</td>
+                <td colspan="2"><input type="email"> </td>
+            </tr>
+            <tr>
+                <td>LANGUAGES KNOWNS</td>
+                <td colspan="2">
+                    <input type="checkbox">MALAYALAM 
+                    <input type="checkbox">ENGLISH 
+                    <input type="checkbox">HINDI
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">Phone number </td>
+                <td>Home </td>
+                <td>Office</td>
+            </tr>
+            <tr>
+                <td><input type="text"> </td>
+                <td colspan="2"><input type="text"> </td>
+            </tr>
+            <tr>
+                <td>UPLOAD CV</td>
+                <td colspan="2"><input type="file"></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="reset" style="background-color: red;color:white; padding: 6px 12px; border: 1px solid transparent;"></td>
+                <td colspan="2" style="text-align: center;"><input type="submit" style="background-color: green;color:white; padding: 6px 12px; border: 1px solid transparent;"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

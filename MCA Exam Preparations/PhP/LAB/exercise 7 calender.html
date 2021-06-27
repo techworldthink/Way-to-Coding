@@ -1,0 +1,116 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender</title>
+    <style>
+        .selection {
+            text-align: center;
+            margin-bottom: 2em;
+            background-color:rgb(174, 179, 181);
+            width: 100%;   
+        }
+        #year_get,#month_get{
+            padding:5px;
+            width:75%;
+        }
+        input{
+            padding: 5px;
+        }
+        .tabselection {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+       table{
+           padding: 5px;
+       }
+       tr{
+           
+       }
+       .selrow{
+         border: none;
+       }
+       td,th{
+           padding: 10px;
+           border: 1px solid black;
+       }
+       .selcol{
+        padding:0px;
+         border: none;
+       text-align: center;
+       }
+       #calender{
+           border-collapse: collapse;
+           margin-left: auto;
+            margin-right: auto;
+       }
+       #resetbtn{
+        background-color:red;
+           border: none;
+           color: white;
+       }
+       #subtn{
+           background-color:green;
+           border: none;
+           color: white;
+       }
+     
+    </style>
+</head>
+
+<body>
+    <div class="selection">
+        <table class="tabselection" cellspacing="10">
+            <tbody>
+                <tr class="selrow">
+                    <td class="selcol"><input id="year_get" type="number" placeholder="year"> </td>
+                    <td class="selcol"><input id="month_get" type="number" placeholder="month"> </td>
+                </tr>
+                <tr class="selrow">
+                    <td  colspan="2" class="selcol"><input onclick="generate()" type="button" id="subtn" value="Generate Calender"> </td>
+                </tr>
+                <tr class="selrow">
+                    <td  colspan="2" class="selcol"><input type="reset" value="reset" id="resetbtn" onclick="location.reload();"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="content"> </div>
+</body>
+<script>
+    function generate() {
+        var init_content = "<table BORDER=1 id='calender'><tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr><tr>"
+        var year_get = document.getElementById("year_get").value;
+        var month_get = document.getElementById("month_get").value;
+        month_get -=1;
+
+        var date = new Date(year_get,month_get);
+        var day = date.getDay();
+        for (var i = 0; i < day; i++) {
+            init_content += "<td></td>";
+        }
+        while (date.getMonth() == month_get) {
+            init_content += "<td>" + date.getDate() + "</td>";
+            if (date.getDay() % 7 == 6) {
+                init_content += "</tr><tr>";
+            }
+            date.setDate(date.getDate() + 1);
+        }
+        
+        while(date.getDay() % 7 != 6 && date.getDay() % 7 != 0){
+            init_content += "<td></td>";
+            date.setDate(date.getDate() + 1);
+        }
+        
+        if(date.getDay() % 7 > 0){
+            init_content += "<td></td></tr>";
+        }
+
+        init_content += "</table>"
+        document.getElementById("content").innerHTML = init_content;
+    }
+</script>
+
+</html>

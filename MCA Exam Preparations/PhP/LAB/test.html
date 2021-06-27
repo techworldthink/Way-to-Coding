@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="data_get">
+    <input type="text" id="data_print">
+    <input type="button" value="generate" onclick="print()">
+
+    <script>
+        function print(){
+            var inp = document.getElementById("data_get").value;
+            document.getElementById("data_print").value = inp.length;
+        }
+    </script>
+</body>
+</html>
+
+
+re = /[0-9]/;
+if(!re.test(passcode)){
+    alert("Enter minimum one number in password !!");
+    document.form.passcode.focus();
+    return false;
+}
+re = /[a-z]/;
+if(!re.test(passcode)){
+    alert("Enter minimum one lowercase letter in password !!");
+    document.form.passcode.focus();
+    return false;
+}
+re = /[A-Z]/;
+if(!re.test(passcode)){
+    alert("Enter minimum one upperrcase letter in password !!");
+    document.form.passcode.focus();
+    return false;
+}
