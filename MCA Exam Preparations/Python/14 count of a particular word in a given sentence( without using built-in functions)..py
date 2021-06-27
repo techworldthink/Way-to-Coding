@@ -5,14 +5,13 @@ particular word in a given sentence
 """
 
 def main():
+    search = input("Input a word : ")
     sentence = "hai hallo again hai"
     s_list   = sentence.split()
-    s_set    = set(s_list)
-    for each in s_set:
-        count=0
-        for i in s_list:
-            if(each==i):
-                count = count + 1
-        print(each , " count is : ",count)
+    count=0
+    for i in s_list:
+        if(search==i):
+            count = count + 1
+    print(search , " count is : ",count)
         
 main()
