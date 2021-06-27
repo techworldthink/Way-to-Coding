@@ -1,3 +1,7 @@
+# 9.Write a Python program to read a list consisting of integers,
+# floating point numbers and strings. Separate them into different lists
+# depending on the data.
+
 def main():
     file = open("9_sample.txt","r")
     file_i = open("9_int.txt","w")
