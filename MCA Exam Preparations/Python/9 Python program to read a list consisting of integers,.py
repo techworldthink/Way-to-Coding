@@ -3,23 +3,21 @@
 # depending on the data.
 
 def main():
-    file = open("9_sample.txt","r")
-    file_i = open("9_int.txt","w")
-    file_f = open("9_float.txt","w")
-    file_s = open("9_string.txt","w")
+    data = [1,2,3,.3,3.2,"hai","hallo"]
+    integer_data = []
+    float_data   = []
+    string_data  = []
 
-    for each in file.readline().split():
-        if each.replace('.', '', 1).isdigit():
-            if(each.find(".") < 0):
-                file_i.write(str(each)+" ")
-            else:
-                file_f.write(str(each)+" ")
+    for each in data:
+        if(isinstance(each, int)):
+            integer_data.append(each)
+        elif(isinstance(each,float)):
+            float_data.append(each)
         elif(isinstance(each, str)):
-            file_s.write(str(each)+" ")
+            string_data.append(each)
 
-    file.close()
-    file_i.close()
-    file_f.close()
-    file_s.close()
+    print(integer_data)
+    print(float_data)
+    print(string_data)
     
 main()
