@@ -1,19 +1,13 @@
 def prime(number):
-    conclusion=0
     if number == 1 :
-        conclusion = 0
         return True
     else :
         for i in range(2, number) :
             if (number % i) == 0 :
-                conclusion = 1
-                break
-            else:
-                conclusion =0
-        if conclusion == 0:
-            return True
-        else:
-            return False
+                return False
+
+        return True
+
 
 f=open("file1.txt","r")
 f1=open("prime.txt","w")
