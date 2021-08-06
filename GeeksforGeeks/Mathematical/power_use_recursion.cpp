@@ -1,21 +1,16 @@
 #include<iostream>
 using namespace std;
 
+//mycode
 int power(int n,int t){
-	if(t!=0){
-		--t;
-		return n*power(n,t);
-	}
-	else{
-		return 1;
-	}
+	return (t!=0)?n*power(n,--t):1;
 }
 
+//Test cases
 int main(){
 	int T,i,no,pow;
 	
 	cin>>T;
-	
 	while(T-- != 0){
 		cin>>no>>pow;
 		cout<<power(no,pow)<<"\n";
