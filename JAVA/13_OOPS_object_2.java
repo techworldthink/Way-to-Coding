@@ -1,10 +1,10 @@
 class Second {
     public static void main(String[] args) {
-        Main myObj = new Main();
+        Main2 myObj = new Main2();
         System.out.println(myObj.x);
     }
 }
 
-class Main {
+class Main2 {
     int x = 5;
 }
