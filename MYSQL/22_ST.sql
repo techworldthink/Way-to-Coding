@@ -1,0 +1,10 @@
+CREATE DEFINER=root@localhost  PROCEDURE add_book  (
+IN ID int,
+IN DVALUE varchar(30)
+)
+BEGIN
+	IF ID!=0
+		THEN
+		INSERT INTO book VALUES(ID,DVALUE); 
+	END IF;
+END
