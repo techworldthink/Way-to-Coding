@@ -1,0 +1,1 @@
+tail text.txt;

@@ -1,0 +1,9 @@
+total 28
+-rwxrwxr-x 1 sherlock sherlock  12 Sep 10 23:31 chmod.sh
+-rwxrwxr-x 1 sherlock sherlock  25 Sep 10 23:36 chown.sh
+-rwxrwxr-x 1 sherlock sherlock  14 Sep 10 23:27 expr.sh
+-rwxrwxr-x 1 sherlock sherlock  24 Sep 10 23:22 grep.sh
+-rwxrwxr-x 1 sherlock sherlock  15 Sep 10 23:18 head.sh
+-rw-rw-r-- 1 sherlock sherlock   0 Sep 10 23:44 listings.txt
+-rwxrwxr-x 1 sherlock sherlock  15 Sep 10 23:18 tail.sh
+-rwxrwxr-x 1 sherlock sherlock 100 Sep 10 23:15 text.txt
