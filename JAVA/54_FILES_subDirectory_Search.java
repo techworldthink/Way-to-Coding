@@ -28,10 +28,10 @@ class listFiles {
         }
     }
 
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int flag=0;
-        String searchName;
+    public static void main(String arg[]) {
+
+        int flag = 0;
+
         System.out.println("\n------ Files are -------\n");
         listFD("G:\\LIST");
         System.out.println("\n-------------------\n");
@@ -39,20 +39,33 @@ class listFiles {
         System.out.println(fileDir);
         System.out.println("\n-------------------\n");
         System.out.print("\nEnter a file Name : ");
-        searchName = sc.nextLine();
-        System.out.print("\nFile Name : "+ searchName);
 
-        for(String file : fileList){
-            if(file.equals(searchName)){
-                System.out.print("\nFile Found ");
-                flag=1;
+        Scanner sc = new Scanner(System.in);
+        String searchName = sc.nextLine();
+        System.out.println("\nFile Name : " + searchName);
+        sc.close();
+
+        for (String file : fileList) {
+            if (file.equals(searchName)) {
+                System.out.print("\nFile Found :  " + searchName);
+                flag = 1;
                 break;
+            } else {
+                String[] fileNameOnly = file.split("\\.", 3);
+                //for (String i : fileNameOnly)
+                    //System.out.print(i + " ");
+                if (searchName.equals(fileNameOnly[0])) {
+                    System.out.print("\nFile Found :  " + file);
+                    flag = 1;
+                    break;
+                }
             }
         }
 
-        if(flag==0){
+        if (flag == 0) {
             System.out.print("\nFile Not Found ");
         }
+
     }
 
 }
