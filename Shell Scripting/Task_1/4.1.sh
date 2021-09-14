@@ -22,13 +22,3 @@ cut -d " " -f 2 myFile;
 printf "\nPrint word count,  lines count , letter count  \n";
 cut -d " " -f 2  myFile | wc;
 
-#swap
-#file="myFile"
-#while read line;
-#do
-#echo $line;
-#cut -d " " -f 1  $line;
-#done < $file
-
-#print first 2 row 
-#awk '{ print $1 " " $2}' myFile;
