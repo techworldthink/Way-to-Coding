@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # To create file
-# cat > myFile;
+printf "\nFile content : \n";
+cat > myFile;
+
 printf "\nprint data on myFile use tabs to seperate\n";
 cat myFile | column -t -s ' ';
 
