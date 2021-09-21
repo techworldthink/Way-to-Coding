@@ -11,7 +11,7 @@ do
 	read b;
 
 	case "$opt" in
-		"1") echo "sum : $(($a + $b))";;
+				"1") echo "sum : $(($a + $b))";;
                 "2") echo "sum : $(($a - $b))";;
                 "3") echo "sum : $(($a * $b))";;
                 "4") echo "sum : $(($a / $b))";;
