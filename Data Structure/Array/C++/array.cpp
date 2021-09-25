@@ -23,9 +23,9 @@ void addElement(){
 }
 
 void deleteElement(){
-    u_int8_t pos=0;
-    u_int8_t count=0;
-    u_int8_t count_=0;
+    int pos=0;
+    int count=0;
+    int count_=0;
     int value;
 
     cout<<"value : ";
@@ -58,7 +58,7 @@ void updateElement(){
 }
 
 void display(){
-    u_int8_t pos=0;
+    int pos=0;
     cout<<"\n............................\n";
     for(pos=0;pos<elementCount;pos++){
         cout<<newArray[pos]<<"\t";
@@ -75,7 +75,7 @@ void swap(int *a,int *b){
 void bubbleSort(){
     int x,y;
     for(x=0;x<elementCount-1;x++){
-        for(y=x;y<elementCount-1;y++){
+        for(y=0;y<elementCount-x-1;y++){
             if(newArray[y]>newArray[y+1]){
                 swap(&newArray[y],&newArray[y+1]);
             }
@@ -84,8 +84,20 @@ void bubbleSort(){
     display();
 }
 
+void insertionSort(){
+    int x,y;
+    for(x=0;x<elementCount;x++){
+        for(y=x+1;y<elementCount;y++){
+            if(newArray[x]>newArray[y]){
+                swap(&newArray[x],&newArray[y]);
+            }
+        }
+    }
+    display();
+}
+
 int main(){
-    u_int8_t opt=0;
+    int opt=0;
 
 
     do{
@@ -95,25 +107,29 @@ int main(){
         cout<<"3)Update Element\n";
         cout<<"4)Display\n";
         cout<<"5)Bubble Sort\n";
+        cout<<"6)Insertion Sort\n";
         cout<<"0)Exit\n";
         cout<<"opt :: ";
         cin>>opt;
 
         switch(opt){
-            case '1':
+            case 1:
                 addElement();
                 break;
-            case '2':
+            case 2:
                 deleteElement();
                 break;
-            case '3':
+            case 3:
                 updateElement();
                 break;
-            case '4':
+            case 4:
                 display();
                 break;
-            case '5':
+            case 5:
                 bubbleSort();
+                break;
+            case 6:
+                insertionSort();
                 break;
             default:
                 cout<<"\nInvalid option\n";
