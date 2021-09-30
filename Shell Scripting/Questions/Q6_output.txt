@@ -1,0 +1,27 @@
+sherlock@sherlock-H310M-H-2-0:$ chmod +x Q6.sh
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q6.sh
+Atleast 1 arguments needed
+0 - Not vaccinated
+1 - First dose only
+2 - Two doses
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q6.sh 0
+give this command to show status : cat status.txt
+
+sherlock@sherlock-H310M-H-2-0:$ cat status.txt
+NOT ALLOWED
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q6.sh 1
+give this command to show status : cat status.txt
+
+sherlock@sherlock-H310M-H-2-0:$ cat status.txt
+Need to submit RTPCR 
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q6.sh 2
+give this command to show status : cat status.txt
+
+sherlock@sherlock-H310M-H-2-0:$ cat status.txt
+Allow
+
+
