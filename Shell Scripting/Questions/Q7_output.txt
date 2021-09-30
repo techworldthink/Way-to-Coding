@@ -1,0 +1,17 @@
+sherlock@sherlock-H310M-H-2-0:$ chmod + Q7.sh
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q7.sh
+Atleast 2 arguments needed (Filename,Username)
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q7.sh user.txt jobin
+user.txt not present , so created
+
+sherlock@sherlock-H310M-H-2-0:$ cat user.txt
+jobin
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q7.sh user.txt sherlock
+user.txt present
+
+sherlock@sherlock-H310M-H-2-0:$ cat user.txt
+jobin
+sherlock
