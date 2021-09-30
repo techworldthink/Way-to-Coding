@@ -1,0 +1,17 @@
+sherlock@sherlock-H310M-H-2-0:$ ./Q5.sh
+Atleast 2 arguments needed (Folder,File)
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q5.sh myfolder/ myfolder/myfile
+myfolder/ Folder created
+
+sherlock@sherlock-H310M-H-2-0:$ cat myfolder/myfile
+CET_MCA
+
+sherlock@sherlock-H310M-H-2-0:$ ./Q5.sh myfolder/ myfolder/myfile
+Folder already present
+myfolder/myfile Deleted
+
+sherlock@sherlock-H310M-H-2-0:$ cat myfolder/myfile
+cat: myfolder/myfile: No such file or directory
+
+
