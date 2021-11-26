@@ -1,0 +1,19 @@
+
+-----------------------------------------------
+myapp->admin.py
+...............................................
++
+from .models import Products
+
+admin.site.register(Products)
+
+
+-----------------------------------------------
+myapp->admin.py
+...............................................
+from .models import Products
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name','price','image')
+
+admin.site.register(Products,ProductAdmin)
