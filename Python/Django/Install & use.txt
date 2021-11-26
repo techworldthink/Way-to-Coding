@@ -13,8 +13,10 @@ django-admin startproject myproject .
 python manage.py help
 django-admin
 
-# MIGRATE
+# MIGRATE (use to create tables)
+python manage.py makemigrations
 python manage.py migrate
+
 
 # RUN
 python manage.py runserver
