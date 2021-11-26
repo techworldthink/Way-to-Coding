@@ -1,0 +1,31 @@
+
+
+#INSTALL
+pip install Django
+
+
+# CREATE A PROJECT
+django-admin startproject myproject
+django-admin startproject myproject . 
+
+
+
+python manage.py help
+django-admin
+
+# MIGRATE
+python manage.py migrate
+
+# RUN
+python manage.py runserver
+python manage.py runserver 9000
+
+
+# CREATE AN APP
+python manage.py startapp myapp
+
+# CREATE SUPER USER
+python manage.py createsuperuser
+
+# ADMIN
+http://127.0.0.1:8000/admin/
