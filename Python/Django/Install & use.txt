@@ -31,3 +31,10 @@ python manage.py createsuperuser
 
 # ADMIN
 http://127.0.0.1:8000/admin/
+
+
+#css js images 
+python manage.py collectstatic
+
+
+
