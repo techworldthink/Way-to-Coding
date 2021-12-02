@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(23, 154, 158);
+}
+h1{
+    color: white;
+}
+img{
+    width: 250px;
+    height: 250px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
