@@ -1,4 +1,3 @@
-setCount = 1
 function toggleMenu() {
     let toggle = document.querySelector('.toggle');
     let navigation = document.querySelector('.navigation');
