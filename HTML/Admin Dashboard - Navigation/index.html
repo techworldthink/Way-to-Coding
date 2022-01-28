@@ -12,7 +12,7 @@
 
 <body>
     <div class="container">
-        <div class="navigation">
+        <div class="navigation" ID="navigation">
             <ul>
                 <li>
                     <a href="#">
@@ -80,6 +80,7 @@
     </div>
 
     <script>
+        let setCount = 0;
         function toggleMenu() {
             let toggle = document.querySelector('.toggle');
             let navigation = document.querySelector('.navigation');
@@ -88,6 +89,14 @@
             navigation.classList.toggle('active')
             main.classList.toggle('active')
         }
+        function closeNav(){
+            if(window.innerWidth <= 726 & setCount!=1){        
+                toggleMenu();
+            }
+            setCount = 0;
+        }
+        
+        document.getElementById("navigation").addEventListener("click", closeNav);
     </script>
 </body>
 
