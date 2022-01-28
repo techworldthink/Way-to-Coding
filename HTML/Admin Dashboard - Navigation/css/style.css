@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   overflow: hidden;
 }
@@ -15,11 +18,12 @@ body {
 }
 .navigation {
   position: fixed;
-  width: 300px;
+  width: 200px;
   height: 100%;
   background-color: #003147;
   transition: 0.5s;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .navigation.active {
   width: 60px;
@@ -34,14 +38,19 @@ body {
   position: relative;
   width: 100%;
   list-style-type: none;
+  margin-top: 4px;
 }
+
 .navigation ul li:hover {
   background: #03a9f4;
 }
+
 .navigation ul li:nth-child(1) {
   margin-bottom: 20px;
+  margin-top: 0px;
   /*margin-top: 20px;*/
 }
+
 .navigation ul li:nth-child(1):hover {
   background: transparent;
 }
@@ -54,38 +63,50 @@ body {
   color: #fff;
 }
 .navigation ul li a .icon {
-  padding-top: 15px;
+  padding-top: 6px;
   position: relative;
   display: block;
-  min-width: 60px;
-  height: 60px;
-  line-height: 60px;
+  min-width: 40px;
+  height: 30px;
+  line-height: 40px;
   text-align: center;
 }
 .navigation ul li a .icon .fa {
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
 }
+
+.navigation ul li:nth-child(1) a .icon .fa {
+  font-size: 24px;
+  margin-top: 13px;
+}
+.navigation ul li:nth-child(1) a .title {
+  margin-top: 17px;
+}
+
 .navigation ul li a .title {
   position: relative;
   display: block;
   padding: 0 10px;
-  height: 60px;
-  line-height: 60px;
+  height: 30px;
+  line-height: 30px;
   white-space: nowrap;
+  font-size: 13px;
+  padding-left: 0;
+  margin-top: 2px;
 }
 
 .main {
   position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
+  width: calc(100% - 200px);
+  left: 200px;
   min-height: 100vh;
   background: #f5f5f5;
   transition: 0.5s;
 }
 .main.active {
   width: calc(100% - 60px);
-  left: 60px;
+  left: 40px;
 }
 .main .topbar {
   width: 100%;
@@ -156,7 +177,37 @@ body {
   object-fit: cover;
 }
 
-@media (max-width: 480px) {
+/*********************************** Dropdown ****************************************/
+ol li {
+  margin: 0px 0px 0px 45px !important;
+  padding: 0;
+  list-style-type: none;
+  display: block;
+}
+ol li a {
+  font-size: 13px;
+  /*margin-top: 10px;*/
+  padding: 4px;
+  width: auto !important;
+}
+
+ol li a .inner-icon {
+  font-size: 13px;
+  margin-top: 2px;
+}
+ol li a .inner-title {
+  margin-left: 5px;
+}
+
+ol li a:hover {
+  background: #03a9f4;
+  background-color: white;
+  color: black;
+}
+
+/***************************** mobile **********************************************/
+
+@media (max-width: 720px) {
   .main {
     width: 100%;
     left: 0px;
@@ -179,4 +230,102 @@ body {
     z-index: 10000;
     right: 0;
   }
+  .navigation ul li a .icon {
+    padding-top: 17px;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+  .navigation ul li a .icon .fa {
+    font-size: 24px;
+  }
+  .navigation ul li a .title {
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    margin-top: 0px;
+  }
+  .navigation ul li:nth-child(1) a .title {
+    margin-top: 0px;
+  }
+  .navigation ul li:nth-child(1) a .icon .fa {
+    margin-top: 3px;
+  }
+  /*dropdown*/
+  ol li a .inner-icon {
+    font-size: 13px;
+    margin-top: 2px;
+    font-size: 17px;
+  }
+  ol li a .inner-title {
+    margin-left: 5px;
+    font-size: 17px;
+  }
+  ol li {
+    margin: 0px 0px 0px 60px !important;
+  }
+}
+
+
+.contents {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  position: absolute;
+}
+
+.contents_frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  overflow-y: scroll;
+}
+
+/*....hide scrollbar................................*/
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#navigation::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#navigation {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#contents_frame::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#contents_frame {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#contents::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#contents {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
