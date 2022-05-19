@@ -26,7 +26,6 @@ END;
 
 -- to call method 2
 
-
 BEGIN
 
 ADD_USER(
@@ -35,6 +34,10 @@ ADD_USER(
 );
 
 END;
+
+-- to call method 3
+
+execute ADD_USER(1,'testuser');
 
 -- view
 
