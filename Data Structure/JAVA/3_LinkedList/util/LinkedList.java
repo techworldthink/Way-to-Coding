@@ -1,3 +1,5 @@
+package util;
+
 public class LinkedList<T extends Comparable<T>> implements List<T> {
     
     private Node<T> root;
@@ -32,7 +34,26 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     @Override
     public void remove(T data){
+        if(root == null) return;
 
+        if(root.getData().compareTo(data) == 0){
+            root = root.getNexNode();
+        }else{
+            remove(data,root,root.getNexNode());
+        }
+    }
+
+    private void remove(T data, Node<T> previousNode, Node<T> actualNode) {
+        while(actualNode != null){
+            if(actualNode.getData().compareTo(data) == 0){
+                numOfItems--;
+                previousNode.setNextNode(actualNode.getNexNode());
+                actualNode = null;
+                return;
+            }
+            previousNode = actualNode;
+            actualNode = actualNode.getNexNode();
+        }
     }
 
     @Override
@@ -49,9 +70,5 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
     @Override
     public int size(){
         return numOfItems;
-    }
-
-    public static void main(String[] args) {
-        
     }
 }
