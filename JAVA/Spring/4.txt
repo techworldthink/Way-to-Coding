@@ -1,0 +1,7 @@
+collections types
+...........................................
+
+List
+Set
+Map
+Properties
