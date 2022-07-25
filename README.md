@@ -8,7 +8,8 @@
 #### Python
 #### Java
 #### PHP
-#### PlSQL-ORACLE
+#### MySQL
+#### PLSQL-ORACLE
 #### Shell Script
 #### React
 #### HTML5
