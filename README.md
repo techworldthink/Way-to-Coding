@@ -7,9 +7,19 @@
 #### c#
 #### Python
 #### Java
-#### Javascript
 #### PHP
+#### PlSQL-ORACLE
+#### Shell Script
+#### React
 #### HTML5
+#### XML
+#### Javascript
+#### Ajax
+#### Arduino
+#### ESP32
+#### Data Structure
+
+
 
 
 
