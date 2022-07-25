@@ -1,0 +1,15 @@
+How to update Node.js and NPM to next version ?
+
+Go to this site: https://github.com/coreybutler/nvm-windows/releases
+Install and unzip the nvm-setup.zip file
+From cmd type nvm -v to ensure nvm is installed.
+
+nvm install <version>
+
+
+
+npm install -g npm
+
+nvm ls available
+
+nvm install 16.16.0
