@@ -1,16 +1,14 @@
 import React from "react";
 import { Component } from "react";
 import "./App.css";
+import Counter from "./component/Counter";
 
 class App extends Component {
-  state ={
-    name:"techworldthink",
-  };
 
   render() {
     return (
       <div className="App">
-        <h1>hello {this.state.name}</h1>
+        <Counter />
       </div>
     );
   }
