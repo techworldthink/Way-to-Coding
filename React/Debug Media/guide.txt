@@ -4,3 +4,8 @@ npx create-react-app todoapp
  
 #Autofill component code - shortcut
 rccp
+# functional componant
+rfc
+
+# router install
+npm i react-router-dom
