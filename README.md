@@ -12,6 +12,7 @@
 #### PLSQL-ORACLE
 #### Shell Script
 #### React
+#### Angular
 #### HTML5
 #### XML
 #### Javascript
