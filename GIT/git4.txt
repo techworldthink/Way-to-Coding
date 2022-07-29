@@ -1,0 +1,20 @@
+
+Open source project contribution
+...............................................
+
+search
+find
+fork
+download clone
+
+git branch feature
+git checkout feature
+
+change files
+
+git add --all
+git commit -m "changed"
+git push  origin feature
+
+
+pull request
