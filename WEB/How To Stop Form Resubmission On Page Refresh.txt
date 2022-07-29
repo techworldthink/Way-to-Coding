@@ -1,0 +1,16 @@
+if(!empty($_POST) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+ $data = // processing codes here
+ unset $data;
+}
+
+
+OR
+
+
+
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
