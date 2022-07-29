@@ -1,0 +1,6 @@
+#install npm
+
+#install angular cli
+npm install -g @angular/cli
+
+npm install -g @angular/cli@9.1.0
