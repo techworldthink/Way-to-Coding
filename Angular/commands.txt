@@ -1,0 +1,12 @@
+
+https://angular.io/cli
+
+# create component
+ng generate component login
+ng g c login
+
+# create module
+ng generate module user-auth
+
+# create component inside a module
+ng g c user-auth/sign-in
