@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Simple if condition -->
+  <h2 *ngif="show">I am techworldthink</h2>
+
+    <!-- Simple if else condition -->
+    <h2 *ngif="show else elseBlock">I am techworldthink</h2>
+    <ng-template #elseBlock>
+      <h2>Sign in first</h2>
+    </ng-template>
+</body>
+</html>
