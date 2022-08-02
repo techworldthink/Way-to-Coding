@@ -1,7 +1,11 @@
 # CREATE PROJECT
 npx create-react-app todoapp
 
- 
+
+# run
+npm start
+
+
 #Autofill component code - shortcut
 rccp
 # functional componant
