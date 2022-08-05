@@ -3,3 +3,12 @@
 ng new my-first-project
 cd my-first-project
 ng serve
+
+
+npm config set legacy-peer-deps true
+
+
+
+Bootstrap add
+https://ng-bootstrap.github.io/#/components/alert/examples
+ng add @ng-bootstrap/ng-bootstrap
