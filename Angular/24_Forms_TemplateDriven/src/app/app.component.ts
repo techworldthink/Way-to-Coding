@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularApp';
+
+  loginUser(Item:any){
+    console.log(Item);
+  }
+
 }
