@@ -1,0 +1,9 @@
+#1
+
+$created
+Limits Microservice
+Spring Cloud Config Server
+	-> Read from git repo
+Git Repo
+	-> create limits-service.properties file
+	-> commit changes
