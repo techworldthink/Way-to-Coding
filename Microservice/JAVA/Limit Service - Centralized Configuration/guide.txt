@@ -1,9 +1,13 @@
 #1
 
 $created
+
 Limits Microservice
+	-> read response from clous service
+	-> http://localhost:8080/limits
 Spring Cloud Config Server
 	-> Read from git repo
+	-> http://localhost:8888/limits-service/default
 Git Repo
 	-> create limits-service.properties file
 	-> commit changes
