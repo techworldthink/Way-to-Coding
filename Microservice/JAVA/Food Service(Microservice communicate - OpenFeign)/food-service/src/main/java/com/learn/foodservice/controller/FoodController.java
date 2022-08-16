@@ -3,6 +3,8 @@ package com.learn.foodservice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learn.foodservice.entity.Food;
@@ -18,5 +20,10 @@ public class FoodController {
 	@GetMapping(value = "/getfood/{id}")
 	public Food getFoodById(@PathVariable int id) throws FoodItemNotFoundException {
 		return foodService.getFoodById(id);	
+	}
+	
+	@PostMapping(value = "/addfood")
+	public Food addFood(@RequestBody Food food) {
+		return foodService.addFood(food);
 	}
 }
