@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	@ExceptionHandler(FoodItemNotFoundException.class)
-	public ResponseEntity<ExceptionDetails> handleMovieNotFoundException(FoodItemNotFoundException ex) {
+	public ResponseEntity<ExceptionDetails> handleFoodItemNotFoundException(FoodItemNotFoundException ex) {
 		ExceptionDetails exceptionDetail = new ExceptionDetails();
 		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
 		exceptionDetail.setMessage(ex.getMessage());
