@@ -1,0 +1,26 @@
+version: 0.2
+phases:
+   install:
+      runtime-versions:
+         docker: 18
+   pre_build:
+      commands:
+      - echo "Entered the pre-build phase"
+      - $(aws ecr get-login  --no-include-email --region $AWS_REGION)
+   build:
+      commands:
+      - echo "Entered build phase"
+      - cd AuthorizationMicroservice
+      - mvn compile
+      - mvn package
+      - echo " building docker image"
+      - docker build -t service/authsapp .
+      - docker tag service/authsapp $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/auth-service:authsapp
+   post_build:
+      commands:
+      - echo "Entered the post-build phase"
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/auth-service:authsapp
+      - printf '[{"name":"authsapp-container","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/auth-service:authsapp>taskdefinition.json
+artifacts:
+   files:
+   - AuthorizationMicroservice/taskdefinition.json
