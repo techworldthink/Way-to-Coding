@@ -1,0 +1,7 @@
+
+DB H2
+http://localhost:8002/h2-console/
+
+Managers
+http://localhost:8002/managers/view/all
+http://localhost:8002/managers/view/101
