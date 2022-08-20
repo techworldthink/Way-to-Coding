@@ -35,7 +35,7 @@ public class ManagerService {
 	}
 
 	public HomeManager addManager(HomeManager homeManager) throws Exception {
-		managerValidator.validateHomeManager(homeManager);
+		managerValidator.validateHomeManager(homeManager.getFirstName());
 		homeManager.setRegDate(Instant.now());
 		return managerRepository.save(homeManager);
 	}
@@ -45,7 +45,7 @@ public class ManagerService {
 				.orElseThrow(() -> new ManagerNotFoundException("Manager with ID: " + id + " not found"));
 		manager.setFirstName(homeManager.getFirstName());
 		manager.setLastName(homeManager.getLastName());
-		managerValidator.validateHomeManager(manager);
+		managerValidator.validateHomeManager(manager.getFirstName());
 		return managerRepository.save(manager);
 	}
 }
