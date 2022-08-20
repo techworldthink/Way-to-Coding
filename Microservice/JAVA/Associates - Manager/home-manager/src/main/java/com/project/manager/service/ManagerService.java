@@ -11,12 +11,16 @@ import com.project.manager.exception.InvalidNameException;
 import com.project.manager.exception.ManagerNotFoundException;
 import com.project.manager.repository.AssignedRepository;
 import com.project.manager.repository.ManagerRepository;
+import com.project.manager.validator.ManagerValidator;
 
 @Service
 public class ManagerService {
 
 	@Autowired
 	private ManagerRepository managerRepository;
+	
+	@Autowired
+	private ManagerValidator managerValidator;
 
 	public List<HomeManager> getAllManagers() {
 		return managerRepository.findAll();
@@ -35,7 +39,7 @@ public class ManagerService {
 	}
 
 	public HomeManager addManager(HomeManager homeManager) throws Exception {
-		validateHomeManager(homeManager);
+		managerValidator.validateHomeManager(homeManager);
 		homeManager.setRegDate(Instant.now());
 		return managerRepository.save(homeManager);
 	}
@@ -45,13 +49,7 @@ public class ManagerService {
 				.orElseThrow(() -> new ManagerNotFoundException("Manager with ID: " + id + " not found"));
 		manager.setFirstName(homeManager.getFirstName());
 		manager.setLastName(homeManager.getLastName());
-		validateHomeManager(manager);
+		managerValidator.validateHomeManager(manager);
 		return managerRepository.save(manager);
 	}
-
-	private void validateHomeManager(HomeManager homeManager) throws Exception {
-		if (homeManager.getFirstName().isBlank())
-			throw new InvalidNameException("Invalid Name!");
-	}
-
 }
