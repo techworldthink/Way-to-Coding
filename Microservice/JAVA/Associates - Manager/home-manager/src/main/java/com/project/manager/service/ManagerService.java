@@ -2,14 +2,10 @@ package com.project.manager.service;
 
 import java.time.Instant;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.project.manager.entity.HomeManager;
-import com.project.manager.exception.InvalidNameException;
 import com.project.manager.exception.ManagerNotFoundException;
-import com.project.manager.repository.AssignedRepository;
 import com.project.manager.repository.ManagerRepository;
 import com.project.manager.validator.ManagerValidator;
 
@@ -18,7 +14,7 @@ public class ManagerService {
 
 	@Autowired
 	private ManagerRepository managerRepository;
-	
+
 	@Autowired
 	private ManagerValidator managerValidator;
 
