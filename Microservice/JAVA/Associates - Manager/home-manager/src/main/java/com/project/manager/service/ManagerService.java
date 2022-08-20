@@ -52,7 +52,6 @@ public class ManagerService {
 	private void validateHomeManager(HomeManager homeManager) throws Exception {
 		if (homeManager.getFirstName().isBlank())
 			throw new InvalidNameException("Invalid Name!");
-
 	}
 
 }
