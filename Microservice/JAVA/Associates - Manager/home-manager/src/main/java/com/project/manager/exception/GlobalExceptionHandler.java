@@ -1,4 +1,5 @@
 package com.project.manager.exception;
+
 import java.time.LocalDateTime;
 
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,16 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(ManagerNotFoundException.class)
 	public ResponseEntity<ExceptionDetails> handleManagerNotFoundException(ManagerNotFoundException ex) {
+		ExceptionDetails exceptionDetail = new ExceptionDetails();
+		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
+		exceptionDetail.setMessage(ex.getMessage());
+		exceptionDetail.setTimestamp(LocalDateTime.now());
+		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
+
+	}
+
+	@ExceptionHandler(InvalidNameException.class)
+	public ResponseEntity<ExceptionDetails> handleInvalidNameException(InvalidNameException ex) {
 		ExceptionDetails exceptionDetail = new ExceptionDetails();
 		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
 		exceptionDetail.setMessage(ex.getMessage());

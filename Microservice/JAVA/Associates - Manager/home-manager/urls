@@ -1,7 +1,39 @@
 
-DB H2
+DB H2.................
+
 http://localhost:8002/h2-console/
 
-Managers
+
+Managers...............
+
+GET
 http://localhost:8002/managers/view/all
+
+GET
 http://localhost:8002/managers/view/101
+
+DELETE
+http://localhost:8002/managers/delete/101
+
+POST
+http://localhost:8002/managers/add
+
+PUT
+http://localhost:8002/managers/update/101
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
