@@ -35,7 +35,8 @@ http://localhost:8002/assign/view/all
 GET
 http://localhost:8002/assign/view/1
 
-
+DELETE
+http://localhost:8002/assign/delete/1
 
 
 

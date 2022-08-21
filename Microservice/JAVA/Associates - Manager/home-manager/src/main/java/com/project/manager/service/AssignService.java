@@ -27,7 +27,7 @@ public class AssignService {
 	@Autowired
 	private ManagerValidator managerValidator;
 
-	public String assignManager(AssignManagers assignManagers) throws Exception {
+	public AssignManagers assignManager(AssignManagers assignManagers) throws Exception {
 		if (!managerRepository.existsById(assignManagers.getManagerId()))
 			throw new InvalidReAssignException("Manager not found");
 		int associateId = assignManagers.getAssociateId();
@@ -35,7 +35,7 @@ public class AssignService {
 			throw new InvalidReAssignException("Associate already assigned!");
 		assignManagers.setAssignDate(Instant.now());
 		assignedRepository.save(assignManagers);
-		return "Success";
+		return assignManagers;
 	}
 
 	public List<AssignManagers> getAllAssigns() {
@@ -46,4 +46,12 @@ public class AssignService {
 		return assignedRepository.findById(id)
 				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
 	}
+
+	public AssignManagers deleteAssignsById(int id) throws AssignNotFoundException {
+		AssignManagers assigned = assignedRepository.findById(id)
+				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
+		assignedRepository.deleteById(id);
+		return assigned;
+	}
+
 }
