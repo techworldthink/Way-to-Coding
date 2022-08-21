@@ -54,4 +54,15 @@ public class AssignService {
 		return assigned;
 	}
 
+	public AssignManagers updateAssignedManager(int id, AssignManagers assignManagers) throws Exception {
+		AssignManagers assigned = assignedRepository.findById(id)
+				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
+		if (!managerRepository.existsById(assignManagers.getManagerId()))
+			throw new InvalidReAssignException("Manager not found");
+		assigned.setManagerId(assignManagers.getManagerId());
+		assigned.setAssignDate(Instant.now());
+		assignedRepository.save(assigned);
+		return assigned;
+	}
+
 }
