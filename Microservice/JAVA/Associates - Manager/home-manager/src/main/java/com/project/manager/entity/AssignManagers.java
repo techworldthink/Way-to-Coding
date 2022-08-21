@@ -13,11 +13,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AssignedManagers {
+public class AssignManagers {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int assignId;
-	private String managerId;
-	private String associateId;
+	private int managerId;
+	private int associateId;
 	private Instant assignDate;
 }

@@ -15,7 +15,7 @@ import com.project.manager.service.ManagerService;
 public class GlobalExceptionHandler {
 
 	private static final Logger logger = LoggerFactory.getLogger(ManagerService.class);
-	
+
 	@ExceptionHandler(ManagerNotFoundException.class)
 	public ResponseEntity<ExceptionDetails> handleManagerNotFoundException(ManagerNotFoundException ex) {
 		ExceptionDetails exceptionDetail = new ExceptionDetails();
@@ -59,4 +59,16 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
 
 	}
+
+	@ExceptionHandler(InvalidReAssignException.class)
+	public ResponseEntity<ExceptionDetails> handleInvalidReAssignException(InvalidReAssignException ex) {
+		ExceptionDetails exceptionDetail = new ExceptionDetails();
+		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
+		exceptionDetail.setMessage(ex.getMessage());
+		exceptionDetail.setTimestamp(LocalDateTime.now());
+		logger.error("Associate not found");
+		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
+
+	}
+
 }
