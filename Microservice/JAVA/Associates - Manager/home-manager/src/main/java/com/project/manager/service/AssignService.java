@@ -6,13 +6,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.manager.client.AssociatesClient;
 import com.project.manager.entity.AssignManagers;
 import com.project.manager.entity.HomeManager;
 import com.project.manager.exception.AssignNotFoundException;
+import com.project.manager.exception.AssociateNotFoundException;
 import com.project.manager.exception.InvalidReAssignException;
 import com.project.manager.exception.ManagerNotFoundException;
 import com.project.manager.repository.AssignedRepository;
 import com.project.manager.repository.ManagerRepository;
+import com.project.manager.validator.AssociateValidator;
 import com.project.manager.validator.ManagerValidator;
 
 @Service
@@ -27,7 +30,12 @@ public class AssignService {
 	@Autowired
 	private ManagerValidator managerValidator;
 
+	@Autowired
+	private AssociateValidator associateValidator;
+
 	public AssignManagers assignManager(AssignManagers assignManagers) throws Exception {
+		//if(associateValidator.isAssociateValid(assignManagers.getAssociateId()))
+		//	throw new AssociateNotFoundException("Associate not found");
 		if (!managerRepository.existsById(assignManagers.getManagerId()))
 			throw new InvalidReAssignException("Manager not found");
 		int associateId = assignManagers.getAssociateId();

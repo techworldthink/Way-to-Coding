@@ -10,5 +10,5 @@ import com.project.manager.exception.AssociateNotFoundException;
 public interface AssociatesClient {
 
 	@GetMapping(value = "/getassociate/{id}")
-	public Associates getFoodById(@PathVariable("id") int id) throws AssociateNotFoundException;
+	public Associates getAssignById(@PathVariable("id") int id) throws AssociateNotFoundException;
 }

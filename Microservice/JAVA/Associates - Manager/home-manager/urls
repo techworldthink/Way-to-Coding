@@ -1,4 +1,8 @@
 
+Swagger
+http://localhost:8002/swagger-ui/index.html
+
+
 DB H2.................
 
 http://localhost:8002/h2-console/

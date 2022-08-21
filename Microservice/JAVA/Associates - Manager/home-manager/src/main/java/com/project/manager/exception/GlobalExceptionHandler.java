@@ -71,4 +71,13 @@ public class GlobalExceptionHandler {
 
 	}
 
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ExceptionDetails> handleGeneralException(Exception ex) {
+		ExceptionDetails exceptionDetail = new ExceptionDetails();
+		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
+		exceptionDetail.setMessage(ex.getMessage());
+		exceptionDetail.setTimestamp(LocalDateTime.now());
+		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
+
+	}
 }
