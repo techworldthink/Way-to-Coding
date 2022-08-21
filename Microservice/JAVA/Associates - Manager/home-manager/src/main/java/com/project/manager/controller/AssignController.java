@@ -27,6 +27,11 @@ public class AssignController {
 		return assignService.getAllAssigns();
 	}
 
+	@GetMapping("/view/{id}")
+	public AssignManagers getAssignById(@PathVariable("id") int id) throws Exception {
+		return assignService.getAssignsById(id);
+	}
+	
 	@PostMapping("/add")
 	public String assignManager(@RequestBody AssignManagers assignManagers) throws Exception {
 		return assignService.assignManager(assignManagers);

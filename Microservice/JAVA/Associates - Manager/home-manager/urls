@@ -29,7 +29,11 @@ Assign...............
 POST
 http://localhost:8002/assign/add
 
+GET
+http://localhost:8002/assign/view/all
 
+GET
+http://localhost:8002/assign/view/1
 
 
 
