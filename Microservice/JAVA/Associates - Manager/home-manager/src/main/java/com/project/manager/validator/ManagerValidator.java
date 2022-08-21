@@ -8,7 +8,7 @@ import com.project.manager.exception.InvalidNameException;
 
 @Component("managerValidator")
 public class ManagerValidator {
-	public void validateHomeManager(String homeManager) throws Exception {
+	public void validateHomeManagerByName(String homeManager) throws Exception {
 		String regex = "[A-Za-z]{0,30}$";
 		Pattern pattern = Pattern.compile(regex);
 		if (homeManager.isBlank())
