@@ -12,12 +12,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Associates {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int associateId;
-	@NotBlank(message = "First name must not be blank")
-	private String firstName;
-	private String lastName;
-	private Instant regDate;
+public class Employee {
+	private int Eid;
+	private String FName;
+	private String LName;
+	private String Email;
+	private String JoinDate;
+	private String EndDate;
+	private String MentorName;
+	private boolean Status;
+	private boolean IsDeleted;
 }
