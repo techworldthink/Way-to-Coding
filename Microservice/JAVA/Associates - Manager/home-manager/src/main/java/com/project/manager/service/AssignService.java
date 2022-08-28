@@ -6,11 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.manager.client.AssociatesClient;
+import com.project.manager.client.UserDetailsClient;
 import com.project.manager.entity.AssignManagers;
 import com.project.manager.entity.HomeManager;
 import com.project.manager.exception.AssignNotFoundException;
-import com.project.manager.exception.AssociateNotFoundException;
+import com.project.manager.exception.EmployeeNotFoundException;
 import com.project.manager.exception.InvalidReAssignException;
 import com.project.manager.exception.ManagerNotFoundException;
 import com.project.manager.repository.AssignedRepository;

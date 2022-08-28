@@ -57,15 +57,12 @@ public class Employee {
 	@Pattern(regexp="\\d{4}-\\d{2}-\\d{2}")
 	private String joinDate;
 	
-	@NotNull(message = "end date is mandatory")
 	private String endDate;
 	
 	@NotNull(message = "Role is mandatory")
 	@Size(min = 3, max = 20)
 	private String role;
 	
-	@NotNull(message = "Mentor name is mandatory")
-	@Size(min = 3, max = 30)
 	private String mentorName;
 	
 	private boolean isHomeManager = true;

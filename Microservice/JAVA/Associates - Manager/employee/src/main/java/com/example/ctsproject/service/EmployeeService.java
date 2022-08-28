@@ -21,7 +21,7 @@ public class EmployeeService {
 		if(employee!=null && employee.isDeleted()==false)
 			return employee;
 		else
-			throw new EmployeeNotFoundException("Data is not found");
+			throw new EmployeeNotFoundException("Employee is not found");
 	}
 	
 	public Employee addEmployee(Employee employee){

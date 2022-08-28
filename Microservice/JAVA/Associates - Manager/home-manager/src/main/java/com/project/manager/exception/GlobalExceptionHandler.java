@@ -49,8 +49,8 @@ public class GlobalExceptionHandler {
 
 	}
 
-	@ExceptionHandler(AssociateNotFoundException.class)
-	public ResponseEntity<ExceptionDetails> handleAssociateNotFoundException(AssociateNotFoundException ex) {
+	@ExceptionHandler(EmployeeNotFoundException.class)
+	public ResponseEntity<ExceptionDetails> handleAssociateNotFoundException(EmployeeNotFoundException ex) {
 		ExceptionDetails exceptionDetail = new ExceptionDetails();
 		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
 		exceptionDetail.setMessage(ex.getMessage());
