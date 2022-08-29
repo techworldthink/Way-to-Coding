@@ -50,23 +50,47 @@ public class ManagerController {
 	}
 
 	@GetMapping("/view/{id}")
-	public Employee getManagerById(@PathVariable("id") int id) throws Exception {
-		return managerService.getManagerById(id);
+	public Employee getManagerById(@PathVariable("id") int id,
+			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
+
+		if (checkAuthentication(requestTokenHeader)) {
+			return managerService.getManagerById(id);
+		} else {
+			throw new AuthorizationException("Invalid token");
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public Employee deleteManagerById(@PathVariable("id") int id) throws Exception {
-		return managerService.deleteManagerById(id);
+	public Employee deleteManagerById(@PathVariable("id") int id,
+			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
+
+		if (checkAuthentication(requestTokenHeader)) {
+			return managerService.deleteManagerById(id);
+		} else {
+			throw new AuthorizationException("Invalid token");
+		}
 	}
 
 	@PostMapping("/add")
-	public Employee addManager(@RequestBody Employee homeManager) throws Exception {
-		return managerService.addManager(homeManager);
+	public Employee addManager(@RequestBody Employee homeManager,
+			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
+
+		if (checkAuthentication(requestTokenHeader)) {
+			return managerService.addManager(homeManager);
+		} else {
+			throw new AuthorizationException("Invalid token");
+		}
 	}
 
 	@PutMapping("/update/{id}")
-	public Employee updateManager(@PathVariable("id") int id, @RequestBody Employee homeManager) throws Exception {
-		return managerService.updateManager(id, homeManager);
+	public Employee updateManager(@PathVariable("id") int id, @RequestBody Employee homeManager,
+			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
+
+		if (checkAuthentication(requestTokenHeader)) {
+			return managerService.updateManager(id, homeManager);
+		} else {
+			throw new AuthorizationException("Invalid token");
+		}
 	}
 
 }
