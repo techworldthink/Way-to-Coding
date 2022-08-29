@@ -2,6 +2,7 @@ package com.project.manager.exception;
 
 import java.time.LocalDateTime;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -80,4 +81,14 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
 
 	}
+	
+	@ExceptionHandler(EmployeeEmptyException.class)
+	public ResponseEntity<ExceptionDetails> handleProductEmptyException(EmployeeEmptyException ex){
+		ExceptionDetails exceptionDetail = new ExceptionDetails();
+		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
+		exceptionDetail.setMessage(ex.getMessage());
+		exceptionDetail.setTimestamp(LocalDateTime.now());
+		return new ResponseEntity<ExceptionDetails>(exceptionDetail, HttpStatus.NOT_FOUND);	
+	}
+	
 }
