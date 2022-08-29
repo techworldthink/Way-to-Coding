@@ -1,7 +1,7 @@
 package com.example.ctsproject.entity;
 
-
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,11 +27,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@Table(name="employee")
-/*@SQLDelete(sql = "UPDATE table_product SET deleted = true WHERE id=?")
-@Where(clause = "deleted=false")
-<strong>@FilterDef(name = "deletedProductFilter", parameters = @ParamDef(name = "isDeleted", type = "boolean"))
-@Filter(name = "deletedProductFilter", condition = "deleted = :isDeleted")</strong>*/
+@Table(name = "employee")
 @ApiModel(value = "Model object that stores the Employee details.")
 @ToString
 @AllArgsConstructor
@@ -40,36 +36,35 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int empId;
-	
+
 	@NotNull(message = "First name is mandatory")
 	@Size(min = 3, max = 20)
 	private String firstName;
-	
+
 	@NotNull(message = "Last name is mandatory")
-	@Size(min = 3, max = 20)
+	@Size(min = 1, max = 20)
 	private String lastName;
-	
+
 	@NotNull(message = "Email date is mandatory")
-	@Pattern(regexp="\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
+	@Pattern(regexp = "\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
 	private String email;
-	
+
 	@NotNull(message = "Join date is mandatory")
-	@Pattern(regexp="\\d{4}-\\d{2}-\\d{2}")
+	@Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}")
 	private String joinDate;
-	
+
 	private String endDate;
-	
+
 	@NotNull(message = "Role is mandatory")
 	@Size(min = 3, max = 20)
 	private String role;
-	
+
 	private String mentorName;
-	
+
 	private boolean isHomeManager = true;
-	
+
 	private boolean status = true;
-	
+
 	private boolean isDeleted = false;
-	
-	
+
 }

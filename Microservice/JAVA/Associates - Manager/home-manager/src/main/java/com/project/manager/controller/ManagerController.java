@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.manager.entity.Employee;
 import com.project.manager.entity.HomeManager;
+import com.project.manager.exception.EmployeeEmptyException;
 import com.project.manager.service.ManagerService;
 
 @RestController
@@ -24,7 +25,7 @@ public class ManagerController {
 	private ManagerService managerService;
 
 	@GetMapping("/view/all")
-	public List<HomeManager> getAllManagers() {
+	public List<Employee> getAllManagers() throws EmployeeEmptyException {
 		return managerService.getAllManagers();
 	}
 
@@ -34,19 +35,19 @@ public class ManagerController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public HomeManager deleteManagerById(@PathVariable("id") int id) throws Exception {
+	public Employee deleteManagerById(@PathVariable("id") int id) throws Exception {
 		return managerService.deleteManagerById(id);
 	}
 
 	@PostMapping("/add")
-	public HomeManager addManager(@RequestBody HomeManager homeManager) throws Exception {
+	public Employee addManager(@RequestBody Employee homeManager) throws Exception {
 		return managerService.addManager(homeManager);
 	}
 
 	@PutMapping("/update/{id}")
-	public HomeManager updateManager(@PathVariable("id") int id, @RequestBody HomeManager homeManager)
+	public Employee updateManager(@PathVariable("id") int id, @RequestBody Employee homeManager)
 			throws Exception {
-		return managerService.updateManager(id,homeManager);
+		return managerService.updateManager(id, homeManager);
 	}
 
 }

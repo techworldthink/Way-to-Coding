@@ -24,12 +24,12 @@ public class ManagerServiceTest {
 	@MockBean
 	private ManagerRepository managerRepository;
 
-	@Test
-	public void getManagerListTest() {
-		when(managerRepository.findAll()).thenReturn(Stream
-				.of(new HomeManager(3, "Jobin", "J", Instant.now()), new HomeManager(3, "Jobin", "J", Instant.now()))
-				.collect(Collectors.toList()));
-		assertEquals(2, managerService.getAllManagers().size());
-	}
+//	@Test
+//	public void getManagerListTest() {
+//		when(managerRepository.findAll()).thenReturn(Stream
+//				.of(new HomeManager(3, "Jobin", "J", Instant.now()), new HomeManager(3, "Jobin", "J", Instant.now()))
+//				.collect(Collectors.toList()));
+//		assertEquals(2, managerService.getAllManagers().size());
+//	}
 
 }

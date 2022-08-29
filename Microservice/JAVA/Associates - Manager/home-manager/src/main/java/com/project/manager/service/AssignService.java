@@ -8,42 +8,40 @@ import org.springframework.stereotype.Service;
 
 import com.project.manager.client.UserDetailsClient;
 import com.project.manager.entity.AssignManagers;
-import com.project.manager.entity.HomeManager;
+import com.project.manager.entity.Employee;
 import com.project.manager.exception.AssignNotFoundException;
 import com.project.manager.exception.EmployeeNotFoundException;
 import com.project.manager.exception.InvalidReAssignException;
 import com.project.manager.exception.ManagerNotFoundException;
 import com.project.manager.repository.AssignedRepository;
-import com.project.manager.repository.ManagerRepository;
-import com.project.manager.validator.AssociateValidator;
-import com.project.manager.validator.ManagerValidator;
 
 @Service
 public class AssignService {
 
 	@Autowired
+	private UserDetailsClient userDetailsClient;
+
+	@Autowired
 	private AssignedRepository assignedRepository;
 
-	@Autowired
-	private ManagerRepository managerRepository;
-
-	@Autowired
-	private ManagerValidator managerValidator;
-
-	@Autowired
-	private AssociateValidator associateValidator;
-
 	public AssignManagers assignManager(AssignManagers assignManagers) throws Exception {
-		//if(associateValidator.isAssociateValid(assignManagers.getAssociateId()))
-		//	throw new AssociateNotFoundException("Associate not found");
-		if (!managerRepository.existsById(assignManagers.getManagerId()))
-			throw new InvalidReAssignException("Manager not found");
-		int associateId = assignManagers.getAssociateId();
-		if (assignedRepository.existsByAssociateId(associateId))
+
+		Employee employeeDetails = userDetailsClient.getEmployeeById(assignManagers.getEmployeeId());
+		Employee managerDetails = userDetailsClient.getEmployeeById(assignManagers.getManagerId());
+
+		if (!managerDetails.isHomeManager())
+			throw new ManagerNotFoundException("Manager not found");
+
+		if (employeeDetails.isHomeManager())
+			throw new EmployeeNotFoundException("Employee not found");
+
+		if (assignedRepository.existsByEmployeeId(assignManagers.getEmployeeId()))
 			throw new InvalidReAssignException("Associate already assigned!");
+
 		assignManagers.setAssignDate(Instant.now());
 		assignedRepository.save(assignManagers);
 		return assignManagers;
+
 	}
 
 	public List<AssignManagers> getAllAssigns() {
@@ -63,10 +61,15 @@ public class AssignService {
 	}
 
 	public AssignManagers updateAssignedManager(int id, AssignManagers assignManagers) throws Exception {
+
 		AssignManagers assigned = assignedRepository.findById(id)
 				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
-		if (!managerRepository.existsById(assignManagers.getManagerId()))
-			throw new InvalidReAssignException("Manager not found");
+
+		Employee managerDetails = userDetailsClient.getEmployeeById(assignManagers.getManagerId());
+
+		if (!managerDetails.isHomeManager())
+			throw new ManagerNotFoundException("Manager not found");
+
 		assigned.setManagerId(assignManagers.getManagerId());
 		assigned.setAssignDate(Instant.now());
 		assignedRepository.save(assigned);

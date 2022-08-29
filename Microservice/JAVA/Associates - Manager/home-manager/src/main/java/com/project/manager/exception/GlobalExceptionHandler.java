@@ -2,14 +2,12 @@ package com.project.manager.exception;
 
 import java.time.LocalDateTime;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import com.project.manager.service.ManagerService;
 
 @ControllerAdvice
@@ -51,12 +49,12 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(EmployeeNotFoundException.class)
-	public ResponseEntity<ExceptionDetails> handleAssociateNotFoundException(EmployeeNotFoundException ex) {
+	public ResponseEntity<ExceptionDetails> handleEmployeeNotFoundException(EmployeeNotFoundException ex) {
 		ExceptionDetails exceptionDetail = new ExceptionDetails();
 		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
 		exceptionDetail.setMessage(ex.getMessage());
 		exceptionDetail.setTimestamp(LocalDateTime.now());
-		logger.error("Associate not found");
+		logger.error("Employee not found");
 		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
 
 	}
@@ -81,14 +79,14 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
 
 	}
-	
+
 	@ExceptionHandler(EmployeeEmptyException.class)
-	public ResponseEntity<ExceptionDetails> handleProductEmptyException(EmployeeEmptyException ex){
+	public ResponseEntity<ExceptionDetails> handleProductEmptyException(EmployeeEmptyException ex) {
 		ExceptionDetails exceptionDetail = new ExceptionDetails();
 		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
 		exceptionDetail.setMessage(ex.getMessage());
 		exceptionDetail.setTimestamp(LocalDateTime.now());
-		return new ResponseEntity<ExceptionDetails>(exceptionDetail, HttpStatus.NOT_FOUND);	
+		return new ResponseEntity<ExceptionDetails>(exceptionDetail, HttpStatus.NOT_FOUND);
 	}
-	
+
 }

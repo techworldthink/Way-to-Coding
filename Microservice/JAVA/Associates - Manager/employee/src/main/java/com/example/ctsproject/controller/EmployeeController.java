@@ -41,7 +41,7 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/deleteemp/{id}")
-	public Employee deleteEmployee(@PathVariable int id, @RequestBody boolean isDeleted) {
+	public Employee deleteEmployee(@PathVariable int id, @RequestBody boolean isDeleted) throws Exception {
 		return employeeService.deleteEmployee(id, isDeleted);
 	}
 	

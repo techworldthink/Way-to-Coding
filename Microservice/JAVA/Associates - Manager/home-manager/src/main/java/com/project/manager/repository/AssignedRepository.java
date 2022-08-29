@@ -8,6 +8,6 @@ import com.project.manager.entity.AssignManagers;
 @Service
 public interface AssignedRepository extends JpaRepository<AssignManagers, Integer> {
 
-	boolean existsByAssociateId(int associateId);
+	boolean existsByEmployeeId(int associateId);
 
 }

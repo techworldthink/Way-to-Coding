@@ -36,10 +36,10 @@ public class EmployeeService {
 			throw new EmployeeEmptyException("There is No Employee Data");
 	}
 	
-	public Employee deleteEmployee(int id, boolean isDeleted) {
+	public Employee deleteEmployee(int id, boolean isDeleted) throws Exception {
 		Optional<Employee> optEmp = employeeRepository.findById(id);
 		if (!optEmp.isPresent()) {
-			throw new RuntimeException("EmployeeMain with the id " + id + " does not exist");
+			throw new Exception("EmployeeMain with the id " + id + " does not exist");
 		}
 		else{
 			Employee emp = optEmp.get();

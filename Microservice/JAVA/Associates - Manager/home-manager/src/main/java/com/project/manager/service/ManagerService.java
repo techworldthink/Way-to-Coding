@@ -1,57 +1,37 @@
 package com.project.manager.service;
 
-import java.time.Instant;
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.manager.client.UserDetailsClient;
 import com.project.manager.entity.Employee;
-import com.project.manager.entity.HomeManager;
+import com.project.manager.exception.EmployeeEmptyException;
 import com.project.manager.exception.ManagerNotFoundException;
-import com.project.manager.repository.ManagerRepository;
-import com.project.manager.validator.ManagerValidator;
 
 @Service
 public class ManagerService {
 
 	@Autowired
-	private ManagerRepository managerRepository;
-
-	@Autowired
-	private ManagerValidator managerValidator;
-
-	@Autowired
 	private UserDetailsClient userDetailsClient;
 
-	public List<HomeManager> getAllManagers() {
-		return managerRepository.findAll();
+	public List<Employee> getAllManagers() throws EmployeeEmptyException {
+		return userDetailsClient.getEmployee();
 	}
 
 	public Employee getManagerById(int id) throws Exception {
 		return userDetailsClient.getEmployeeById(id);
 	}
 
-	public HomeManager deleteManagerById(int id) throws ManagerNotFoundException {
-		HomeManager manager = managerRepository.findById(id)
-				.orElseThrow(() -> new ManagerNotFoundException("Manager with ID: " + id + " not found"));
-		managerRepository.deleteById(id);
-		return manager;
+	public Employee deleteManagerById(int id) throws ManagerNotFoundException {
+		return userDetailsClient.deleteEmployee(id, true);
 	}
 
-	public HomeManager addManager(HomeManager homeManager) throws Exception {
-		managerValidator.validateHomeManagerByName(homeManager.getFirstName());
-		homeManager.setRegDate(Instant.now());
-		return managerRepository.save(homeManager);
+	public Employee addManager(Employee homeManager) throws Exception {
+		return userDetailsClient.addEmployee(homeManager);
 	}
 
-	public HomeManager updateManager(int id, HomeManager homeManager) throws Exception {
-		HomeManager manager = managerRepository.findById(id)
-				.orElseThrow(() -> new ManagerNotFoundException("Manager with ID: " + id + " not found"));
-		manager.setFirstName(homeManager.getFirstName());
-		manager.setLastName(homeManager.getLastName());
-		managerValidator.validateHomeManagerByName(manager.getFirstName());
-		return managerRepository.save(manager);
+	public Employee updateManager(int id, Employee homeManager) throws Exception {
+		return userDetailsClient.updateEmployee(id, homeManager);
 	}
 }
