@@ -72,7 +72,7 @@ public class AuthController {
 			//res.setValid(false);
 			LOGGER.info("At Validity : ");
 			LOGGER.error("Token Has Expired");
-			throw new Exception("toekn invalid");
+			throw new Exception("token invalid");
 		}
 		
 	}

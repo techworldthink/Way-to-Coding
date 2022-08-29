@@ -89,4 +89,12 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ExceptionDetails>(exceptionDetail, HttpStatus.NOT_FOUND);
 	}
 
+	@ExceptionHandler(AuthorizationException.class)
+	public ResponseEntity<ExceptionDetails> handleAuthorizationException(AuthorizationException ex) {
+		ExceptionDetails exceptionDetail = new ExceptionDetails();
+		exceptionDetail.setCode(HttpStatus.NOT_FOUND);
+		exceptionDetail.setMessage(ex.getMessage());
+		exceptionDetail.setTimestamp(LocalDateTime.now());
+		return new ResponseEntity<>(exceptionDetail, HttpStatus.FORBIDDEN);
+	}
 }

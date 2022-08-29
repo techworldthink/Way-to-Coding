@@ -1,6 +1,6 @@
 
 Swagger
-http://localhost:8002/swagger-ui/index.html
+http://localhost:8002/manager-service/swagger-ui/index.html
 
 
 DB H2.................
