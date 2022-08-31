@@ -2,6 +2,7 @@ package com.project.manager.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,6 @@ import com.project.manager.client.AuthenticationClient;
 import com.project.manager.entity.AuthResponse;
 import com.project.manager.entity.Employee;
 import com.project.manager.exception.AuthorizationException;
-import com.project.manager.exception.EmployeeEmptyException;
 import com.project.manager.service.ManagerService;
 
 @RestController
@@ -31,7 +31,7 @@ public class ManagerController {
 	@Autowired
 	AuthenticationClient authorisingClient;
 
-	private boolean checkAuthentication(String requestTokenHeader) throws Exception {
+	public boolean checkAuthentication(String requestTokenHeader) throws Exception {
 		ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
 		return valid.getBody().isValid();
 
