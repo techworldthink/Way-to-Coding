@@ -30,14 +30,9 @@ public class AssignController {
 	@Autowired
 	AuthenticationClient authorisingClient;
 
-	private boolean checkAuthentication(String requestTokenHeader) throws Exception {
+	public boolean checkAuthentication(String requestTokenHeader) throws Exception {
 		ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
-
-		if (checkAuthentication(requestTokenHeader)) {
-			return valid.getBody().isValid();
-		} else {
-			throw new AuthorizationException("Invalid token");
-		}
+		return valid.getBody().isValid();
 
 	}
 
@@ -87,7 +82,7 @@ public class AssignController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public AssignManagers deleteAssignById(@PathVariable("id") int id,
+	public AssignManagers deleteAssignsById(@PathVariable("id") int id,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
