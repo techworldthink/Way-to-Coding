@@ -1,6 +1,7 @@
 package com.project.manager.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -67,6 +68,8 @@ public class ManagerControllerTest {
 		authFailed = new AuthResponse("", "", false, "");
 
 	}
+	
+
 
 	@Test
 	@DisplayName("Test Authorising client")
