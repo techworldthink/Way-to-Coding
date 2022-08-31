@@ -33,7 +33,6 @@ public class ManagerServiceTest {
 
 	private Employee emp0;
 	private Employee emp1;
-	private Employee emp2;
 
 	@BeforeEach
 	public void setup() {
@@ -41,8 +40,6 @@ public class ManagerServiceTest {
 		emp0 = new Employee(1, "user0", "U", "user0@gmail.com", "2022-02-02", "2022-02-02", "Manager", "", true, true,
 				false);
 		emp1 = new Employee(2, "user1", "U", "user1@gmail.com", "2022-02-02", "2022-02-02", "Manager", "", true, true,
-				false);
-		emp2 = new Employee(3, "user2", "U", "user2@gmail.com", "2022-03-03", "2022-03-03", "Employee", "", false, true,
 				false);
 
 	}
@@ -54,7 +51,7 @@ public class ManagerServiceTest {
 	}
 
 	@Test
-	@DisplayName("Test User Details Client")
+	@DisplayName("Test Manager Service")
 	void testManagerServiceNotNull() {
 		assertThat(managerService).isNotNull();
 	}
