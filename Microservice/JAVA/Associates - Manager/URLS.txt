@@ -1,8 +1,10 @@
 
 
 # AUTH APP
-
 http://localhost:8001/authapp/swagger-ui.html
 
+# Employee
+http://localhost:8002/employee/swagger-ui.html
 
-
+# Manager
+http://localhost:8003/manager/swagger-ui/index.html
