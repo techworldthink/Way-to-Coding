@@ -14,21 +14,21 @@ import com.project.manager.entity.Employee;
 import com.project.manager.exception.EmployeeEmptyException;
 import com.project.manager.exception.EmployeeNotFoundException;
 
-@FeignClient(url = "${userdetails.url}", name = "employee-manage-service")
+@FeignClient(name = "user-service")
 public interface UserDetailsClient {
 
-	@GetMapping(value = "/getemployee/{id}")
+	@GetMapping(value = "/employee/getemployee/{id}")
 	public Employee getEmployeeById(@PathVariable("id") int id) throws EmployeeNotFoundException;
 
-	@PostMapping(value = "/addemployee")
+	@PostMapping(value = "/employee/addemployee")
 	public Employee addEmployee(@RequestBody Employee employee);
 
-	@GetMapping(value = "/getemployee")
+	@GetMapping(value = "/employee/getemployee")
 	public List<Employee> getEmployee() throws EmployeeEmptyException;
 
-	@PutMapping("/updateemp/{id}")
+	@PutMapping("/employee/updateemp/{id}")
 	public Employee updateEmployee(@PathVariable int id, @RequestBody Employee employee);
 
-	@PutMapping("/deleteemp/{id}")
+	@PutMapping("/employee/deleteemp/{id}")
 	public Employee deleteEmployee(@PathVariable int id, @RequestBody boolean isDeleted);
 }

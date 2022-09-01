@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import com.project.manager.entity.AuthResponse;
 
-@FeignClient(url = "${userauthentication.url}", name = "authapp")
+// @FeignClient(url = "${userauthentication.url}", name = "authapp-service")
+@FeignClient(name = "authapp-service")
 public interface AuthenticationClient {
-	@GetMapping(value = "/validate")
+	@GetMapping(value = "/authapp/validate")
 	public ResponseEntity<AuthResponse> getValidity(@RequestHeader("Authorization") final String token)
 			throws Exception;
 }
