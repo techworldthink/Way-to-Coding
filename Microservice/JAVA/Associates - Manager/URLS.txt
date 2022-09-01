@@ -1,0 +1,8 @@
+
+
+# AUTH APP
+
+http://localhost:8001/authapp/swagger-ui.html
+
+
+
