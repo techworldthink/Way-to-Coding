@@ -24,10 +24,10 @@ public class AssignService {
 	@Autowired
 	private AssignedRepository assignedRepository;
 
-	public AssignManagers assignManager(AssignManagers assignManagers) throws Exception {
+	public AssignManagers assignManager(AssignManagers assignManagers,String token) throws Exception {
 
-		Employee employeeDetails = userDetailsClient.getEmployeeById(assignManagers.getEmployeeId());
-		Employee managerDetails = userDetailsClient.getEmployeeById(assignManagers.getManagerId());
+		Employee employeeDetails = userDetailsClient.getEmployeeById(assignManagers.getEmployeeId(),token);
+		Employee managerDetails = userDetailsClient.getEmployeeById(assignManagers.getManagerId(),token);
 
 		if (!managerDetails.isHomeManager())
 			throw new ManagerNotFoundException("Manager not found");
@@ -60,12 +60,12 @@ public class AssignService {
 		return assigned;
 	}
 
-	public AssignManagers updateAssignedManager(int id, AssignManagers assignManagers) throws Exception {
+	public AssignManagers updateAssignedManager(int id, AssignManagers assignManagers,String token) throws Exception {
 
 		AssignManagers assigned = assignedRepository.findById(id)
 				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
 
-		Employee managerDetails = userDetailsClient.getEmployeeById(assignManagers.getManagerId());
+		Employee managerDetails = userDetailsClient.getEmployeeById(assignManagers.getManagerId(),token);
 
 		if (!managerDetails.isHomeManager())
 			throw new ManagerNotFoundException("Manager not found");

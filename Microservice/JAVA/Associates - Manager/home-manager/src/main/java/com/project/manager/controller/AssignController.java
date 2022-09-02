@@ -64,7 +64,7 @@ public class AssignController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return assignService.assignManager(assignManagers);
+			return assignService.assignManager(assignManagers,requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -75,7 +75,7 @@ public class AssignController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return assignService.updateAssignedManager(id, assignManagers);
+			return assignService.updateAssignedManager(id, assignManagers,requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}

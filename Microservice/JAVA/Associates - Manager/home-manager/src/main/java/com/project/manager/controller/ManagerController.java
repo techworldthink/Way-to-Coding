@@ -2,7 +2,6 @@ package com.project.manager.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,7 +41,7 @@ public class ManagerController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return managerService.getAllManagers();
+			return managerService.getAllManagers(requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -54,7 +53,7 @@ public class ManagerController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return managerService.getManagerById(id);
+			return managerService.getManagerById(id, requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -65,7 +64,7 @@ public class ManagerController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return managerService.deleteManagerById(id);
+			return managerService.deleteManagerById(id, requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -76,7 +75,7 @@ public class ManagerController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return managerService.addManager(homeManager);
+			return managerService.addManager(homeManager, requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -87,7 +86,7 @@ public class ManagerController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return managerService.updateManager(id, homeManager);
+			return managerService.updateManager(id, homeManager, requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}

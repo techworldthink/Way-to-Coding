@@ -15,23 +15,23 @@ public class ManagerService {
 	@Autowired
 	private UserDetailsClient userDetailsClient;
 
-	public List<Employee> getAllManagers() throws EmployeeEmptyException {
-		return userDetailsClient.getEmployee();
+	public List<Employee> getAllManagers(String token) throws EmployeeEmptyException {
+		return userDetailsClient.getEmployee(token);
 	}
 
-	public Employee getManagerById(int id) throws Exception {
-		return userDetailsClient.getEmployeeById(id);
+	public Employee getManagerById(int id, String token) throws Exception {
+		return userDetailsClient.getEmployeeById(id, token);
 	}
 
-	public Employee deleteManagerById(int id) throws ManagerNotFoundException {
-		return userDetailsClient.deleteEmployee(id, true);
+	public Employee deleteManagerById(int id, String token) throws ManagerNotFoundException {
+		return userDetailsClient.deleteEmployee(id, true, token);
 	}
 
-	public Employee addManager(Employee homeManager) throws Exception {
-		return userDetailsClient.addEmployee(homeManager);
+	public Employee addManager(Employee homeManager, String token) throws Exception {
+		return userDetailsClient.addEmployee(homeManager, token);
 	}
 
-	public Employee updateManager(int id, Employee homeManager) throws Exception {
-		return userDetailsClient.updateEmployee(id, homeManager);
+	public Employee updateManager(int id, Employee homeManager, String token) throws Exception {
+		return userDetailsClient.updateEmployee(id, homeManager, token);
 	}
 }
