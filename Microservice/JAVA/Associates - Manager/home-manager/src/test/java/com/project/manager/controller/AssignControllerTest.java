@@ -146,7 +146,7 @@ public class AssignControllerTest {
 	void testassignManagerWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(assignService.assignManager(any(AssignManagers.class))).thenReturn(assign0);
+		when(assignService.assignManager(any(AssignManagers.class), any())).thenReturn(assign0);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -156,7 +156,7 @@ public class AssignControllerTest {
 						.contentType(MediaType.APPLICATION_JSON).content(jsonString))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(4)))
 				.andExpect(jsonPath("$.assignId", is(1)));
-		verify(assignService, times(1)).assignManager(any(AssignManagers.class));
+		verify(assignService, times(1)).assignManager(any(AssignManagers.class), any());
 
 	}
 
@@ -165,14 +165,14 @@ public class AssignControllerTest {
 	void testassignManagerWithoutValidToken() throws Exception {
 		when(authClient.getValidity("wrongtoken"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authFailed, HttpStatus.OK));
-		when(assignService.assignManager(any(AssignManagers.class))).thenReturn(assign0);
+		when(assignService.assignManager(any(AssignManagers.class), any())).thenReturn(assign0);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 		String jsonString = mapper.writeValueAsString(assign0);
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/assign/add").header("Authorization", "wrongtoken")
 				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isForbidden());
-		verify(assignService, times(0)).assignManager(any(AssignManagers.class));
+		verify(assignService, times(0)).assignManager(any(AssignManagers.class), any());
 
 	}
 
@@ -186,7 +186,7 @@ public class AssignControllerTest {
 		this.mockMvc.perform(
 				MockMvcRequestBuilders.post("/assign/add").contentType(MediaType.APPLICATION_JSON).content(jsonString))
 				.andExpect(status().isNotFound());
-		verify(assignService, times(0)).assignManager(any(AssignManagers.class));
+		verify(assignService, times(0)).assignManager(any(AssignManagers.class), any());
 
 	}
 
@@ -230,7 +230,7 @@ public class AssignControllerTest {
 	void testupdateAssignedManagerWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(assignService.updateAssignedManager(anyInt(), any(AssignManagers.class))).thenReturn(assign0);
+		when(assignService.updateAssignedManager(anyInt(), any(AssignManagers.class), any())).thenReturn(assign0);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -241,7 +241,7 @@ public class AssignControllerTest {
 						.content(jsonString))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(4)))
 				.andExpect(jsonPath("$.assignId", is(1)));
-		verify(assignService, times(1)).updateAssignedManager(eq(1), any(AssignManagers.class));
+		verify(assignService, times(1)).updateAssignedManager(eq(1), any(AssignManagers.class), any());
 
 	}
 
@@ -256,7 +256,7 @@ public class AssignControllerTest {
 		String jsonString = mapper.writeValueAsString(assign0);
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/assign/update/{id}", 1).header("Authorization", "wrongtoken")
 				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isForbidden());
-		verify(assignService, times(0)).updateAssignedManager(anyInt(), any(AssignManagers.class));
+		verify(assignService, times(0)).updateAssignedManager(anyInt(), any(AssignManagers.class), any());
 
 	}
 
@@ -269,7 +269,7 @@ public class AssignControllerTest {
 		String jsonString = mapper.writeValueAsString(assign0);
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/assign/update/{id}", 1)
 				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isNotFound());
-		verify(assignService, times(0)).updateAssignedManager(anyInt(), any(AssignManagers.class));
+		verify(assignService, times(0)).updateAssignedManager(anyInt(), any(AssignManagers.class), any());
 
 	}
 

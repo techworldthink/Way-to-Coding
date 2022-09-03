@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -68,8 +69,6 @@ public class ManagerControllerTest {
 		authFailed = new AuthResponse("", "", false, "");
 
 	}
-	
-
 
 	@Test
 	@DisplayName("Test Authorising client")
@@ -94,10 +93,10 @@ public class ManagerControllerTest {
 	void testgetAllManagersWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(managerService.getAllManagers()).thenReturn(Arrays.asList(emp0, emp1));
+		when(managerService.getAllManagers(anyString())).thenReturn(Arrays.asList(emp0, emp1));
 		this.mockMvc.perform(get("/managers/view/all").header("Authorization", "@uthoriz@tionToken123"))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.length()", is(2)));
-		verify(managerService, times(1)).getAllManagers();
+		verify(managerService, times(1)).getAllManagers(anyString());
 
 	}
 
@@ -121,11 +120,11 @@ public class ManagerControllerTest {
 	void testgetManagerByIdWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(managerService.getManagerById(anyInt())).thenReturn(emp0);
+		when(managerService.getManagerById(anyInt(), anyString())).thenReturn(emp0);
 		this.mockMvc.perform(get("/managers/view/1").header("Authorization", "@uthoriz@tionToken123"))
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.empId", is(1)));
-		verify(managerService, times(1)).getManagerById(eq(1));
+		verify(managerService, times(1)).getManagerById(eq(1), anyString());
 	}
 
 	@Test
@@ -133,7 +132,7 @@ public class ManagerControllerTest {
 	void testgetManagerByIdWithoutValidToken() throws Exception {
 		when(authClient.getValidity("wrongtoken"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authFailed, HttpStatus.OK));
-		when(managerService.getManagerById(anyInt())).thenReturn(emp0);
+		when(managerService.getManagerById(anyInt(), anyString())).thenReturn(emp0);
 		this.mockMvc.perform(get("/managers/view/1").header("Authorization", "wrongtoken"))
 				.andExpect(status().isForbidden());
 	}
@@ -149,13 +148,13 @@ public class ManagerControllerTest {
 	void testdeleteManagerByIdWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(managerService.deleteManagerById(anyInt())).thenReturn(emp0);
+		when(managerService.deleteManagerById(anyInt(), anyString())).thenReturn(emp0);
 		this.mockMvc
 				.perform(MockMvcRequestBuilders.delete("/managers/delete/{id}", 1).header("Authorization",
 						"@uthoriz@tionToken123"))
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.empId", is(1)));
-		verify(managerService, times(1)).deleteManagerById(eq(1));
+		verify(managerService, times(1)).deleteManagerById(eq(1), anyString());
 	}
 
 	@Test
@@ -163,7 +162,7 @@ public class ManagerControllerTest {
 	void testdeleteManagerByIdWithInvalidToken() throws Exception {
 		when(authClient.getValidity("wrongtoken"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authFailed, HttpStatus.OK));
-		when(managerService.deleteManagerById(anyInt())).thenReturn(emp0);
+		when(managerService.deleteManagerById(anyInt(), anyString())).thenReturn(emp0);
 		this.mockMvc
 				.perform(
 						MockMvcRequestBuilders.delete("/managers/delete/{id}", 1).header("Authorization", "wrongtoken"))
@@ -182,7 +181,7 @@ public class ManagerControllerTest {
 	void testaddManagerWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(managerService.addManager(any(Employee.class))).thenReturn(emp0);
+		when(managerService.addManager(any(Employee.class), anyString())).thenReturn(emp0);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -192,7 +191,7 @@ public class ManagerControllerTest {
 						.contentType(MediaType.APPLICATION_JSON).content(jsonString))
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.empId", is(1)));
-		verify(managerService, times(1)).addManager(any(Employee.class));
+		verify(managerService, times(1)).addManager(any(Employee.class), anyString());
 	}
 
 	@Test
@@ -206,7 +205,7 @@ public class ManagerControllerTest {
 		String jsonString = mapper.writeValueAsString(emp0);
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/managers/add").header("Authorization", "wrongtoken")
 				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isForbidden());
-		verify(managerService, times(0)).addManager(any(Employee.class));
+		verify(managerService, times(0)).addManager(any(Employee.class), anyString());
 	}
 
 	@Test
@@ -225,7 +224,7 @@ public class ManagerControllerTest {
 	void testupdateManagerWithValidToken() throws Exception {
 		when(authClient.getValidity("@uthoriz@tionToken123"))
 				.thenReturn(new ResponseEntity<AuthResponse>(authOK, HttpStatus.OK));
-		when(managerService.updateManager(anyInt(), any(Employee.class))).thenReturn(emp0);
+		when(managerService.updateManager(anyInt(), any(Employee.class), anyString())).thenReturn(emp0);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -236,7 +235,7 @@ public class ManagerControllerTest {
 						.content(jsonString))
 				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.empId", is(1)));
-		verify(managerService, times(1)).updateManager(anyInt(), any(Employee.class));
+		verify(managerService, times(1)).updateManager(anyInt(), any(Employee.class), anyString());
 	}
 
 	@Test
@@ -251,7 +250,7 @@ public class ManagerControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/managers/update/{id}", 1)
 				.header("Authorization", "wrongtoken").contentType(MediaType.APPLICATION_JSON).content(jsonString))
 				.andExpect(status().isForbidden());
-		verify(managerService, times(0)).updateManager(anyInt(), any(Employee.class));
+		verify(managerService, times(0)).updateManager(anyInt(), any(Employee.class), anyString());
 	}
 
 	@Test
@@ -263,7 +262,7 @@ public class ManagerControllerTest {
 		String jsonString = mapper.writeValueAsString(emp0);
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/managers/update/{id}", 1)
 				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isNotFound());
-		verify(managerService, times(0)).updateManager(anyInt(), any(Employee.class));
+		verify(managerService, times(0)).updateManager(anyInt(), any(Employee.class), anyString());
 	}
 
 }

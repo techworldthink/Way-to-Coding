@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -82,43 +83,43 @@ public class AssignServiceTest {
 	@Test
 	@DisplayName("Test assignManager() of AssignService success")
 	public void testAssignManagerAssignSuccess() throws Exception {
-		when(userDetailsClient.getEmployeeById(eq(1))).thenReturn(userManager);
-		when(userDetailsClient.getEmployeeById(eq(2))).thenReturn(userEmployee);
+		when(userDetailsClient.getEmployeeById(eq(1), anyString())).thenReturn(userManager);
+		when(userDetailsClient.getEmployeeById(eq(2), anyString())).thenReturn(userEmployee);
 		when(assignedRepository.save(any(AssignManagers.class))).thenReturn(assign0);
-		assertThat(assignService.assignManager(assign0)).isNotNull();
+		assertThat(assignService.assignManager(assign0, "token")).isNotNull();
 	}
 
 	@Test
 	@DisplayName("Test assignManager() of AssignService failed - invalid home manager id")
 	public void testAssignManagerAssignFailedDueToInvalidManagerId() throws Exception {
-		when(userDetailsClient.getEmployeeById(eq(1))).thenReturn(userEmployee);
-		when(userDetailsClient.getEmployeeById(eq(2))).thenReturn(userEmployee);
+		when(userDetailsClient.getEmployeeById(eq(1), anyString())).thenReturn(userEmployee);
+		when(userDetailsClient.getEmployeeById(eq(2), anyString())).thenReturn(userEmployee);
 		when(assignedRepository.save(any(AssignManagers.class))).thenReturn(assign0);
 		assertThrows(ManagerNotFoundException.class, () -> {
-			assignService.assignManager(assign0);
+			assignService.assignManager(assign0, "token");
 		});
 	}
 
 	@Test
 	@DisplayName("Test assignManager() of AssignService failed - invalid employee id")
 	public void testAssignManagerAssignFailedDueToInvalidEmployeeId() throws Exception {
-		when(userDetailsClient.getEmployeeById(eq(1))).thenReturn(userManager);
-		when(userDetailsClient.getEmployeeById(eq(2))).thenReturn(userManager);
+		when(userDetailsClient.getEmployeeById(eq(1), anyString())).thenReturn(userManager);
+		when(userDetailsClient.getEmployeeById(eq(2), anyString())).thenReturn(userManager);
 		when(assignedRepository.save(any(AssignManagers.class))).thenReturn(assign0);
 		assertThrows(EmployeeNotFoundException.class, () -> {
-			assignService.assignManager(assign0);
+			assignService.assignManager(assign0, "token");
 		});
 	}
 
 	@Test
 	@DisplayName("Test assignManager() of AssignService failed - Already assigned")
 	public void testAssignManagerAssignFailedDueToExistingEntry() throws Exception {
-		when(userDetailsClient.getEmployeeById(eq(1))).thenReturn(userManager);
-		when(userDetailsClient.getEmployeeById(eq(2))).thenReturn(userEmployee);
+		when(userDetailsClient.getEmployeeById(eq(1), anyString())).thenReturn(userManager);
+		when(userDetailsClient.getEmployeeById(eq(2), anyString())).thenReturn(userEmployee);
 		when(assignedRepository.existsByEmployeeId(anyInt())).thenReturn(true);
 		when(assignedRepository.save(any(AssignManagers.class))).thenReturn(assign0);
 		assertThrows(InvalidReAssignException.class, () -> {
-			assignService.assignManager(assign0);
+			assignService.assignManager(assign0, "token");
 		});
 	}
 
@@ -168,9 +169,9 @@ public class AssignServiceTest {
 	public void testUpdateAssignedManagerSuccess() throws Exception {
 		Optional<AssignManagers> assign2 = Optional.of(assign0);
 		when(assignedRepository.findById(anyInt())).thenReturn(assign2);
-		when(userDetailsClient.getEmployeeById(eq(1))).thenReturn(userManager);
+		when(userDetailsClient.getEmployeeById(eq(1), anyString())).thenReturn(userManager);
 		when(assignedRepository.save(any(AssignManagers.class))).thenReturn(assign0);
-		assertThat(assignService.updateAssignedManager(1, assign0)).isNotNull();
+		assertThat(assignService.updateAssignedManager(1, assign0, anyString())).isNotNull();
 		verify(assignedRepository, times(1)).save(any(AssignManagers.class));
 	}
 
@@ -178,7 +179,7 @@ public class AssignServiceTest {
 	@DisplayName("Test updateAssignedManager() of AssignService - Assign Not Found Exception")
 	public void testUpdateAssignedManagerAssignNotFoundException() throws Exception {
 		assertThrows(AssignNotFoundException.class, () -> {
-			assignService.updateAssignedManager(1, assign0);
+			assignService.updateAssignedManager(1, assign0, anyString());
 		});
 		verify(assignedRepository, times(0)).save(any(AssignManagers.class));
 	}
@@ -188,10 +189,10 @@ public class AssignServiceTest {
 	public void testupdateAssignedManagerFailedDueToInvalidManagerId() throws Exception {
 		Optional<AssignManagers> assign2 = Optional.of(assign0);
 		when(assignedRepository.findById(anyInt())).thenReturn(assign2);
-		when(userDetailsClient.getEmployeeById(eq(1))).thenReturn(userEmployee);
+		when(userDetailsClient.getEmployeeById(eq(1), anyString())).thenReturn(userEmployee);
 		when(assignedRepository.save(any(AssignManagers.class))).thenReturn(assign0);
 		assertThrows(ManagerNotFoundException.class, () -> {
-			assignService.updateAssignedManager(1, assign0);
+			assignService.updateAssignedManager(1, assign0, "token");
 		});
 	}
 

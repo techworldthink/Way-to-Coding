@@ -3,6 +3,7 @@ package com.project.manager.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
@@ -59,36 +60,36 @@ public class ManagerServiceTest {
 	@Test
 	@DisplayName("Test getAllManagers() in ManagerService")
 	public void testGetAllManagers() throws EmployeeEmptyException {
-		when(userDetailsClient.getEmployee()).thenReturn(Arrays.asList(emp0));
-		assertThat(managerService.getAllManagers()).isNotNull();
+		when(userDetailsClient.getEmployee(anyString())).thenReturn(Arrays.asList(emp0));
+		assertThat(managerService.getAllManagers(anyString())).isNotNull();
 	}
 
 	@Test
 	@DisplayName("Test getManagerById() in ManagerService")
 	public void testGetManagerById() throws Exception {
-		when(userDetailsClient.getEmployeeById(anyInt())).thenReturn(emp0);
-		assertThat(managerService.getManagerById(1)).isNotNull();
+		when(userDetailsClient.getEmployeeById(anyInt(), anyString())).thenReturn(emp0);
+		assertThat(managerService.getManagerById(1, "token")).isNotNull();
 	}
 
 	@Test
 	@DisplayName("Test deleteManagerById() in ManagerService")
 	public void testDeleteManagerById() throws Exception {
-		when(userDetailsClient.deleteEmployee(anyInt(), eq(true))).thenReturn(emp0);
-		assertThat(managerService.deleteManagerById(1)).isNotNull();
+		when(userDetailsClient.deleteEmployee(anyInt(), eq(true), anyString())).thenReturn(emp0);
+		assertThat(managerService.deleteManagerById(1, "token")).isNotNull();
 	}
 
 	@Test
 	@DisplayName("Test addManager() in ManagerService")
 	public void testAddManager() throws Exception {
-		when(userDetailsClient.addEmployee(any(Employee.class))).thenReturn(emp0);
-		assertThat(managerService.addManager(emp0)).isNotNull();
+		when(userDetailsClient.addEmployee(any(Employee.class), anyString())).thenReturn(emp0);
+		assertThat(managerService.addManager(emp0, "token")).isNotNull();
 	}
 
 	@Test
 	@DisplayName("Test updateManager() in ManagerService")
 	public void testUpdateManager() throws Exception {
-		when(userDetailsClient.updateEmployee(anyInt(), any(Employee.class))).thenReturn(emp0);
-		assertThat(managerService.updateManager(1, emp0)).isNotNull();
+		when(userDetailsClient.updateEmployee(anyInt(), any(Employee.class), anyString())).thenReturn(emp0);
+		assertThat(managerService.updateManager(1, emp0, "token")).isNotNull();
 	}
 
 }
