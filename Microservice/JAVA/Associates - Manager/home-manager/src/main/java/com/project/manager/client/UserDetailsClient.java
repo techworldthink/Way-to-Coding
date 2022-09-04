@@ -32,6 +32,10 @@ public interface UserDetailsClient {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader)
 			throws EmployeeEmptyException;
 
+	@GetMapping("/employee/gethomemanagers")
+	public List<Employee> getHomeManagers(
+			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception;
+
 	@PutMapping("/employee/updateemp/{id}")
 	public Employee updateEmployee(@PathVariable int id, @RequestBody Employee employee,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader);

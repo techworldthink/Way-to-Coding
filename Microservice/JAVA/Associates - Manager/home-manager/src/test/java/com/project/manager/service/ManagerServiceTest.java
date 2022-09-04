@@ -59,7 +59,7 @@ public class ManagerServiceTest {
 
 	@Test
 	@DisplayName("Test getAllManagers() in ManagerService")
-	public void testGetAllManagers() throws EmployeeEmptyException {
+	public void testGetAllManagers() throws Exception {
 		when(userDetailsClient.getEmployee(anyString())).thenReturn(Arrays.asList(emp0));
 		assertThat(managerService.getAllManagers(anyString())).isNotNull();
 	}

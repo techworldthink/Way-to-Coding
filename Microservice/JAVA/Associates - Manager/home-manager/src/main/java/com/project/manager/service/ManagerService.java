@@ -8,6 +8,7 @@ import com.project.manager.client.UserDetailsClient;
 import com.project.manager.entity.Employee;
 import com.project.manager.exception.EmployeeEmptyException;
 import com.project.manager.exception.ManagerNotFoundException;
+import com.project.manager.validator.ManagerValidator;
 
 @Service
 public class ManagerService {
@@ -15,8 +16,20 @@ public class ManagerService {
 	@Autowired
 	private UserDetailsClient userDetailsClient;
 
-	public List<Employee> getAllManagers(String token) throws EmployeeEmptyException {
-		return userDetailsClient.getEmployee(token);
+	@Autowired
+	private ManagerValidator managerValidator;
+
+	private void validateHomeManager(Employee homeManager) throws Exception {
+		managerValidator.validateNotNull(homeManager.getFirstName());
+		managerValidator.validateNotNull(homeManager.getJoinDate());
+		managerValidator.validateNotNull(homeManager.getRole());
+		managerValidator.validateNotNull(homeManager.getLastName());
+		managerValidator.validateFirstName(homeManager.getFirstName());
+		managerValidator.validateEmail(homeManager.getEmail());
+	}
+
+	public List<Employee> getAllManagers(String token) throws Exception {
+		return userDetailsClient.getHomeManagers(token);
 	}
 
 	public Employee getManagerById(int id, String token) throws Exception {
@@ -28,10 +41,13 @@ public class ManagerService {
 	}
 
 	public Employee addManager(Employee homeManager, String token) throws Exception {
+		validateHomeManager(homeManager);
+		homeManager.setHomeManager(true);
 		return userDetailsClient.addEmployee(homeManager, token);
 	}
 
 	public Employee updateManager(int id, Employee homeManager, String token) throws Exception {
+		validateHomeManager(homeManager);
 		return userDetailsClient.updateEmployee(id, homeManager, token);
 	}
 }

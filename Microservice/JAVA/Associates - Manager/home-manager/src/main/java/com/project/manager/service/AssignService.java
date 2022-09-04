@@ -37,6 +37,9 @@ public class AssignService {
 
 		if (assignedRepository.existsByEmployeeId(assignManagers.getEmployeeId()))
 			throw new InvalidReAssignException("Associate already assigned!");
+		
+		if(assignManagers.getAssignDate() == null)
+			throw new Exception("Invalid assign date");
 
 		assignManagers.setAssignDate(Instant.now());
 		assignedRepository.save(assignManagers);
