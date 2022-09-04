@@ -19,8 +19,9 @@ public class CustomerDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String uid) throws UsernameNotFoundException {
-		UserData custuser = userdao.findById(uid).orElse(null);
-		return new User(custuser.getUserid()+','+custuser.getAuthRole(), custuser.getUpassword(),  new ArrayList<>());
+		UserData custuser = userdao.findById(uid).orElseThrow(() -> new UsernameNotFoundException("Invalid username"));
+		return new User(custuser.getUserid() + ',' + custuser.getAuthRole(), custuser.getUpassword(),
+				new ArrayList<>());
 	}
 
 }

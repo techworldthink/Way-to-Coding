@@ -1,12 +1,15 @@
 package com.project.authorization.service;
 
 import java.util.Date;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+
+import com.project.authorization.exception.AuthorizationException;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -20,7 +23,7 @@ public class JwtUtil {
 	public String extractUsername(String token) {
 		return extractClaim(token, Claims::getSubject);
 	}
-	
+
 	public String extractRole(String token) {
 		return extractClaim(token, Claims::getAudience);
 	}
@@ -42,20 +45,16 @@ public class JwtUtil {
 		String token = Jwts.builder().setClaims(claims).setSubject(data[0])
 				.setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))// token for 1 hr
-				.setAudience(data[1])
-				.signWith(SignatureAlgorithm.HS256, secretkey)
-				.compact();
+				.setAudience(data[1]).signWith(SignatureAlgorithm.HS256, secretkey).compact();
 		return token;
 	}
 
-	public Boolean validateToken(String token) {
+	public Boolean validateToken(String token) throws AuthorizationException {
 		try {
 			Jwts.parser().setSigningKey(secretkey).parseClaimsJws(token).getBody();
 			return true;
+		} catch (Exception e) {
+			throw new AuthorizationException("Invalid token");
 		}
-		catch(Exception e) {
-			return false;
-		}
-		
 	}
 }

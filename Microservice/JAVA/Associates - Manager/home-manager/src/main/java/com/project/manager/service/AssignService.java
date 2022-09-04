@@ -37,11 +37,11 @@ public class AssignService {
 
 		if (assignedRepository.existsByEmployeeId(assignManagers.getEmployeeId()))
 			throw new InvalidReAssignException("Associate already assigned!");
-		
-		if(assignManagers.getAssignDate() == null)
+
+		if (assignManagers.getAssignDate() == null)
 			throw new Exception("Invalid assign date");
 
-		assignManagers.setAssignDate(Instant.now());
+		assignManagers.setAssignDate(Instant.now().toString());
 		assignedRepository.save(assignManagers);
 		return assignManagers;
 
@@ -74,7 +74,7 @@ public class AssignService {
 			throw new ManagerNotFoundException("Manager not found");
 
 		assigned.setManagerId(assignManagers.getManagerId());
-		assigned.setAssignDate(Instant.now());
+		assigned.setAssignDate(Instant.now().toString());
 		assignedRepository.save(assigned);
 		return assigned;
 	}

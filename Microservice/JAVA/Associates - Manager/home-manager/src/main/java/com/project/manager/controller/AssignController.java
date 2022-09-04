@@ -30,7 +30,7 @@ public class AssignController {
 	@Autowired
 	AuthenticationClient authorisingClient;
 
-	public boolean checkAuthentication(String requestTokenHeader) throws Exception {
+	public boolean checkAuthentication(String requestTokenHeader) throws AuthorizationException {
 		ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
 		return valid.getBody().isValid();
 
@@ -64,7 +64,7 @@ public class AssignController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return assignService.assignManager(assignManagers,requestTokenHeader);
+			return assignService.assignManager(assignManagers, requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -75,7 +75,7 @@ public class AssignController {
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
 
 		if (checkAuthentication(requestTokenHeader)) {
-			return assignService.updateAssignedManager(id, assignManagers,requestTokenHeader);
+			return assignService.updateAssignedManager(id, assignManagers, requestTokenHeader);
 		} else {
 			throw new AuthorizationException("Invalid token");
 		}
@@ -91,5 +91,5 @@ public class AssignController {
 			throw new AuthorizationException("Invalid token");
 		}
 	}
-	
+
 }

@@ -19,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.project.authorization.dao.UserDAO;
+import com.project.authorization.exception.AuthorizationException;
 import com.project.authorization.model.UserData;
 import com.project.authorization.service.CustomerDetailsService;
 import com.project.authorization.service.JwtUtil;
@@ -47,7 +48,7 @@ public class JwUtilTest {
 	}
 
 	@Test
-	public void validateTokenTest() {
+	public void validateTokenTest() throws AuthorizationException {
 		userdetails = new User("admin", "admin", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);
 		Boolean validateToken = jwtUtil.validateToken(generateToken);
@@ -55,7 +56,7 @@ public class JwUtilTest {
 	}
 
 	@Test
-	public void validateTokenWithNameTest() {
+	public void validateTokenWithNameTest() throws AuthorizationException {
 		userdetails = new User("admin", "admin", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);
 		Boolean validateToken = jwtUtil.validateToken(generateToken); //, userdetails);
@@ -63,7 +64,7 @@ public class JwUtilTest {
 	}
 
 	@Test
-	public void validateTokenWithNameFalseTest() {
+	public void validateTokenWithNameFalseTest() throws AuthorizationException {
 		userdetails = new User("admin", "admin", new ArrayList<>());
 		UserDetails user1 = new User("admin1", "admin1", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);

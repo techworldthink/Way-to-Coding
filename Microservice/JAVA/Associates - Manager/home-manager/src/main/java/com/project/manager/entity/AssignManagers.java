@@ -23,5 +23,5 @@ public class AssignManagers {
 	private int assignId;
 	private int managerId;
 	private int employeeId;
-	private Instant assignDate;
+	private String assignDate;
 }

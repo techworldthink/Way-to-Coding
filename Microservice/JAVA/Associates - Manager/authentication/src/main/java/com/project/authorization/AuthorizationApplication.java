@@ -9,10 +9,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class AuthorizationMicroserviceApplication {
+public class AuthorizationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthorizationMicroserviceApplication.class, args);
+		SpringApplication.run(AuthorizationApplication.class, args);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
