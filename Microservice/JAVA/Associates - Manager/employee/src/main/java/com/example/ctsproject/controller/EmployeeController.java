@@ -66,6 +66,18 @@ public class EmployeeController {
 
 	}
 	
+	@GetMapping("/gethomemanagers")
+	public List<Employee> getHomeManagers(
+			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
+
+		if (checkAuthentication(requestTokenHeader)) {
+			return employeeService.getHomeManagers();
+		} else {
+			throw new AuthorizationException("Invalid token");
+		}
+
+	}
+	
 	@PutMapping("/updateemp/{id}")
 	public Employee updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
