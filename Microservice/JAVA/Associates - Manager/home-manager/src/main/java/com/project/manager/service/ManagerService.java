@@ -33,7 +33,11 @@ public class ManagerService {
 	}
 
 	public Employee getManagerById(int id, String token) throws Exception {
-		return userDetailsClient.getEmployeeById(id, token);
+		Employee manager = userDetailsClient.getEmployeeById(id, token);
+		if (manager.isHomeManager())
+			return manager;
+		else
+			throw new ManagerNotFoundException("Manager not found");
 	}
 
 	public Employee deleteManagerById(int id, String token) throws ManagerNotFoundException {
