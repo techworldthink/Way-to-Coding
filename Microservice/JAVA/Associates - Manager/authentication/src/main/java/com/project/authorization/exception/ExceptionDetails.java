@@ -14,7 +14,6 @@ public class ExceptionDetails {
 
 	public void setTimestamp(LocalDateTime now) {
 		this.timestamp = now.toString();
-
 	}
 
 }

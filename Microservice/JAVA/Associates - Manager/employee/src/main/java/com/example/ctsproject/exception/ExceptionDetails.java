@@ -8,33 +8,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class ExceptionDetails {
 	private String message;
-	private HttpStatus code;
-	private LocalDateTime timestamp;
+	private int code;
+	private String timestamp;
+	
+	public void setTimestamp(LocalDateTime now) {
+		this.timestamp = now.toString();
 
-	public String getMessage() {
-		return message;
 	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public HttpStatus getCode() {
-		return code;
-	}
-
-	public void setCode(HttpStatus code) {
-		this.code = code;
-	}
-
-	public LocalDateTime getTimestamp() {
-		return timestamp;
-	}
-
-	public void setTimestamp(LocalDateTime timestamp) {
-		this.timestamp = timestamp;
-	}
-
 }
