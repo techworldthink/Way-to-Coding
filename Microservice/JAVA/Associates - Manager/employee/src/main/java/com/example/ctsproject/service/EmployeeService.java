@@ -29,7 +29,15 @@ public class EmployeeService {
 	}
 	
 	public List<Employee> getEmployee() throws EmployeeEmptyException{
-		List<Employee> list = employeeRepository.findByIsHomeManager(false); 
+		List<Employee> list = employeeRepository.findAll(); 
+		if(!list.isEmpty())
+			return list;
+		else
+			throw new EmployeeEmptyException("There is No Employee Data");
+	}
+	
+	public List<Employee> getHomeManagers() throws EmployeeEmptyException {
+		List<Employee> list = employeeRepository.findByIsHomeManager(true); 
 		if(!list.isEmpty())
 			return list;
 		else
@@ -94,11 +102,5 @@ public class EmployeeService {
 		return emp;
 	}
 
-	public List<Employee> getHomeManagers() throws EmployeeEmptyException {
-		List<Employee> list = employeeRepository.findByIsHomeManager(true); 
-		if(!list.isEmpty())
-			return list;
-		else
-			throw new EmployeeEmptyException("There is No Employee Data");
-	}
+	
 }

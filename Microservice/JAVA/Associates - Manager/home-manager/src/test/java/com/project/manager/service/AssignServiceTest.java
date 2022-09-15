@@ -51,8 +51,8 @@ public class AssignServiceTest {
 	@BeforeEach
 	public void setup() {
 		MockitoAnnotations.openMocks(this);
-		assign0 = new AssignManagers(1, 1, 2, Instant.now());
-		assign1 = new AssignManagers(2, 4, 5, Instant.now());
+		assign0 = new AssignManagers(1, 1, 2, "12-12-2222");
+		assign1 = new AssignManagers(2, 4, 5, "12-12-2222");
 		userManager = new Employee(1, "user0", "U", "user0@gmail.com", "2022-02-02", "2022-02-02", "Manager", "", true,
 				true, false);
 		userEmployee = new Employee(2, "user1", "U", "user1@gmail.com", "2022-02-02", "2022-02-02", "Employee", "",

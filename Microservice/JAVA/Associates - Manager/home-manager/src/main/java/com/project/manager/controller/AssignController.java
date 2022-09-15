@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.project.manager.exception.AuthorizationException;
 import com.project.manager.service.AssignService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/assign")
 public class AssignController {
 
@@ -30,10 +32,14 @@ public class AssignController {
 	@Autowired
 	AuthenticationClient authorisingClient;
 
-	public boolean checkAuthentication(String requestTokenHeader) throws AuthorizationException {
-		ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
-		return valid.getBody().isValid();
+	public boolean checkAuthentication(String requestTokenHeader) throws Exception {
+		try {
+			ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
+			return valid.getBody().isValid();
+		} catch (Exception e) {
 
+		}
+		return false;
 	}
 
 	@GetMapping("/view/all")

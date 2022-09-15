@@ -55,8 +55,8 @@ public class AssignControllerTest {
 	@BeforeEach
 	public void setup() {
 
-		assign0 = new AssignManagers(1, 2, 3, Instant.now());
-		assign1 = new AssignManagers(2, 4, 5, Instant.now());
+		assign0 = new AssignManagers(1, 2, 3, "12-12-2222");
+		assign1 = new AssignManagers(2, 4, 5, "12-12-2222");
 		authOK = new AuthResponse("1", "user", true, "");
 		authFailed = new AuthResponse("", "", false, "");
 
@@ -105,7 +105,15 @@ public class AssignControllerTest {
 	@Test
 	@DisplayName("Test getAllAssigns() of the AssignController without token ")
 	void testgetAllAssignsWithoutToken() throws Exception {
-		this.mockMvc.perform(get("/assign/view/all")).andExpect(status().isNotFound());
+		this.mockMvc.perform(get("/assign/view/all")).andExpect(status().isBadRequest());
+
+	}
+
+	@Test
+	@DisplayName("Test getAllAssigns() of the AssignController client error ")
+	void testgetAllAssignsClientError() throws Exception {
+		this.mockMvc.perform(get("/assign/view/all").header("Authorization", "token"))
+				.andExpect(status().isForbidden());
 
 	}
 
@@ -136,7 +144,7 @@ public class AssignControllerTest {
 	@Test
 	@DisplayName("Test getAssignById() of the AssignController without token ")
 	void testgetAssignByIdWithoutToken() throws Exception {
-		this.mockMvc.perform(get("/assign/view/{id}", 1)).andExpect(status().isNotFound());
+		this.mockMvc.perform(get("/assign/view/{id}", 1)).andExpect(status().isBadRequest());
 		verify(assignService, times(0)).getAssignsById(anyInt());
 
 	}
@@ -185,7 +193,7 @@ public class AssignControllerTest {
 		String jsonString = mapper.writeValueAsString(assign0);
 		this.mockMvc.perform(
 				MockMvcRequestBuilders.post("/assign/add").contentType(MediaType.APPLICATION_JSON).content(jsonString))
-				.andExpect(status().isNotFound());
+				.andExpect(status().isBadRequest());
 		verify(assignService, times(0)).assignManager(any(AssignManagers.class), any());
 
 	}
@@ -220,7 +228,8 @@ public class AssignControllerTest {
 	@Test
 	@DisplayName("Test deleteAssignById() of the AssignController without token ")
 	void testdeleteAssignsByIdWithoutToken() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.delete("/assign/delete/{id}", 1)).andExpect(status().isNotFound());
+		this.mockMvc.perform(MockMvcRequestBuilders.delete("/assign/delete/{id}", 1))
+				.andExpect(status().isBadRequest());
 		verify(assignService, times(0)).deleteAssignsById(eq(1));
 
 	}
@@ -268,7 +277,7 @@ public class AssignControllerTest {
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 		String jsonString = mapper.writeValueAsString(assign0);
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/assign/update/{id}", 1)
-				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isNotFound());
+				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isBadRequest());
 		verify(assignService, times(0)).updateAssignedManager(anyInt(), any(AssignManagers.class), any());
 
 	}

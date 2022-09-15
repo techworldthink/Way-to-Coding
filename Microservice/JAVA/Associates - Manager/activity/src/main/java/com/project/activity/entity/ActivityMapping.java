@@ -19,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 
-public class ActivityMapping<Employee> {
+public class ActivityMapping<Emploee> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int mappingId;
@@ -29,12 +29,8 @@ public class ActivityMapping<Employee> {
 	@ManyToOne
 	@JoinColumn(name = "Activityid")
 	 private Activity activity;
-	public void setEmployee(int employeeId) {
-		// TODO Auto-generated method stub
+	public void setEmployee(int employeeId) {	
 		
 	}
 	
-	/*@JoinColumn(name = "Employeeid")
-	private Employee employee;
-	*/
 }

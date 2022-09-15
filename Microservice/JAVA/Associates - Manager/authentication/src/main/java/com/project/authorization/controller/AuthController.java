@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ import com.project.authorization.service.CustomerDetailsService;
 import com.project.authorization.service.JwtUtil;
 
 @RestController
+@CrossOrigin
 public class AuthController {
 
 	@Autowired
@@ -51,7 +53,10 @@ public class AuthController {
 		if (userdetails.getPassword().equals(userlogincredentials.getUpassword())) {
 			uid = userlogincredentials.getUserid();
 			token = jwtutil.generateToken(userdetails);
-			return new ResponseEntity<UserData>(new UserData(uid, null, null, token), HttpStatus.OK);
+
+			UserData userData = new UserData(uid, null, null, token);
+			userData.setAuthRole(jwtutil.extractRole(token));
+			return new ResponseEntity<UserData>(userData, HttpStatus.OK);
 		} else {
 			LOGGER.info("At Login : ");
 			LOGGER.error("Not Accesible");
@@ -75,6 +80,13 @@ public class AuthController {
 			LOGGER.error("Token Has Expired");
 			throw new AuthorizationException("Token invalid");
 		}
+
+//		AuthResponse res = new AuthResponse();
+//		res.setUid("sample");
+//		res.setValid(true);
+//		res.setName("sample");
+//		res.setRole("admin");
+//		return new ResponseEntity<AuthResponse>(res, HttpStatus.OK);
 
 	}
 

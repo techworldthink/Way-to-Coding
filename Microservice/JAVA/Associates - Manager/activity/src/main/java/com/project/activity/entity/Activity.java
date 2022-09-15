@@ -22,15 +22,7 @@ public class Activity {
 	private int activityId;
 	private String title;
 	private String description;
-	/*private boolean status;
-	public void setDeleted(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setDeleted(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}*/
+	
 }
 
 

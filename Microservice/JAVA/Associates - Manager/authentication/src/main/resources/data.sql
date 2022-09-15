@@ -1,3 +1,3 @@
 insert into user (userid,upassword,uname,auth_role) values ('admin','admin','admin','admin');
-insert into user (userid,upassword,uname, auth_role) values ('foo','foo','associate','associate');
-insert into user (userid,upassword,uname, auth_role) values ('abcd','abcd','homemanager','homemanager');
+insert into user (userid,upassword,uname, auth_role) values ('employee','employee','employee','employee');
+insert into user (userid,upassword,uname, auth_role) values ('guest','guest','guest','guest');

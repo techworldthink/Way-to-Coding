@@ -1,16 +1,11 @@
 package com.project.activity.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.project.activity.AuthClient;
 import com.project.activity.entity.Activity;
-import com.project.activity.entity.AuthResponse;
-import com.project.activity.exception.ActivityEmptyException;
 import com.project.activity.exception.ActivityNotFoundException;
 import com.project.activity.repository.ActivityRepository;
 
@@ -18,6 +13,7 @@ import com.project.activity.repository.ActivityRepository;
 public class ActivityService {
 	@Autowired
 	private ActivityRepository activityRepository;
+	
 	@Autowired
 	AuthClient authClient;
 

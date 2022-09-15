@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import com.project.activity.AuthClient;
 import com.project.activity.client.UserDetailsClient;
 import com.project.activity.entity.Activity;
 //import com.project.activity.entity.Activity;
@@ -28,11 +29,14 @@ public class ActivityMappingService {
 
 	@Autowired
 	private ActivityRepository activityRepository;
+	
+	@Autowired
+	AuthClient authClient;
 
 	@Autowired
 	private UserDetailsClient userDetailsClient;
 
-	public List<ActivityMapping> getAllActivityMapping() throws ActivityMappingEmptyException {
+	public List<ActivityMapping> getAllActivityMapping(String Token) throws ActivityMappingEmptyException {
 
 		List<ActivityMapping> list = activityMappingRepository.findAll();
 		if (!list.isEmpty())
@@ -41,7 +45,7 @@ public class ActivityMappingService {
 			throw new ActivityMappingEmptyException("There is No ActivityMapping Data");
 	}
 
-	public ActivityMapping getActivityMappingById(int id) throws ActivityMappingNotFoundException {
+	public ActivityMapping getActivityMappingById(int id,String Token) throws ActivityMappingNotFoundException {
 
 		ActivityMapping activityMapping = activityMappingRepository.findById(id).orElse(null);
 		if (activityMapping != null)
@@ -50,7 +54,7 @@ public class ActivityMappingService {
 			throw new ActivityMappingNotFoundException();
 	}
 
-	public ActivityMapping addActivityMapping(ActivityMappingModel activityMappingModel) throws Exception {
+	public ActivityMapping addActivityMapping(ActivityMappingModel activityMappingModel,String Token) throws Exception {
 		Activity activity = activityRepository.findById(activityMappingModel.getActivityid()).orElse(null);
 		if (activity != null) {
 			ActivityMapping activityMapping = new ActivityMapping();
@@ -63,7 +67,7 @@ public class ActivityMappingService {
 			throw new Exception("Activity id does not exist");
 	}
 
-	public ActivityMapping deleteActivityMapping(int id, boolean isDeleted) throws Exception {
+	public ActivityMapping deleteActivityMapping(int id,String Token) throws Exception {
 
 		Optional<ActivityMapping> optAct = activityMappingRepository.findById(id);
 		if (!optAct.isPresent()) {

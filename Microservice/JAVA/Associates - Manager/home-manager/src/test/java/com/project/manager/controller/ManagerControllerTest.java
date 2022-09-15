@@ -110,9 +110,16 @@ public class ManagerControllerTest {
 	}
 
 	@Test
+	@DisplayName("Test getAllManagers() of the Controller client error ")
+	void testgetAllManagersClientError() throws Exception {
+		this.mockMvc.perform(get("/managers/view/all").header("Authorization", "wrongtoken"))
+				.andExpect(status().isForbidden());
+	}
+
+	@Test
 	@DisplayName("Test getAllManagers() of the Controller without token ")
 	void testgetAllManagersWithoutToken() throws Exception {
-		this.mockMvc.perform(get("/managers/view/all")).andExpect(status().isNotFound());
+		this.mockMvc.perform(get("/managers/view/all")).andExpect(status().isBadRequest());
 	}
 
 	@Test
@@ -140,7 +147,7 @@ public class ManagerControllerTest {
 	@Test
 	@DisplayName("Test getAllManagers() of the Controller without token ")
 	void testgetManagerByIdWithoutToken() throws Exception {
-		this.mockMvc.perform(get("/managers/view/1")).andExpect(status().isNotFound());
+		this.mockMvc.perform(get("/managers/view/1")).andExpect(status().isBadRequest());
 	}
 
 	@Test
@@ -173,7 +180,7 @@ public class ManagerControllerTest {
 	@DisplayName("Test deleteManagerById() of the Controller without token ")
 	void testdeleteManagerByIdWithoutToken() throws Exception {
 		this.mockMvc.perform(MockMvcRequestBuilders.delete("/managers/delete/{id}", 1))
-				.andExpect(status().isNotFound());
+				.andExpect(status().isBadRequest());
 	}
 
 	@Test
@@ -216,7 +223,7 @@ public class ManagerControllerTest {
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 		String jsonString = mapper.writeValueAsString(emp0);
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/managers/add").contentType(MediaType.APPLICATION_JSON)
-				.content(jsonString)).andExpect(status().isNotFound());
+				.content(jsonString)).andExpect(status().isBadRequest());
 	}
 
 	@Test
@@ -261,7 +268,7 @@ public class ManagerControllerTest {
 		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 		String jsonString = mapper.writeValueAsString(emp0);
 		this.mockMvc.perform(MockMvcRequestBuilders.put("/managers/update/{id}", 1)
-				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isNotFound());
+				.contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isBadRequest());
 		verify(managerService, times(0)).updateManager(anyInt(), any(Employee.class), anyString());
 	}
 
