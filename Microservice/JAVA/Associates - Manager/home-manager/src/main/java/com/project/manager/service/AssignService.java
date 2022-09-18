@@ -24,6 +24,13 @@ public class AssignService {
 	@Autowired
 	private AssignedRepository assignedRepository;
 
+	/**
+	 * 
+	 * @param assignManagers
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
 	public AssignManagers assignManager(AssignManagers assignManagers, String token) throws Exception {
 
 		Employee employeeDetails = userDetailsClient.getEmployeeById(assignManagers.getEmployeeId(), token);
@@ -44,15 +51,31 @@ public class AssignService {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<AssignManagers> getAllAssigns() {
 		return assignedRepository.findAll();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	public AssignManagers getAssignsById(int id) throws Exception {
 		return assignedRepository.findById(id)
 				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @throws AssignNotFoundException
+	 */
 	public AssignManagers deleteAssignsById(int id) throws AssignNotFoundException {
 		AssignManagers assigned = assignedRepository.findById(id)
 				.orElseThrow(() -> new AssignNotFoundException("No such Assignment found"));
@@ -60,6 +83,14 @@ public class AssignService {
 		return assigned;
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param assignManagers
+	 * @param token
+	 * @return
+	 * @throws Exception
+	 */
 	public AssignManagers updateAssignedManager(int id, AssignManagers assignManagers, String token) throws Exception {
 
 		AssignManagers assigned = assignedRepository.findById(id)

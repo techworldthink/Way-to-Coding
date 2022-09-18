@@ -25,11 +25,12 @@ public class EmployeeService {
 	}
 	
 	public Employee addEmployee(Employee employee){
+		employee.setEmpId((int) (employeeRepository.count()+1));
 		return employeeRepository.save(employee);
 	}
 	
 	public List<Employee> getEmployee() throws EmployeeEmptyException{
-		List<Employee> list = employeeRepository.findAll(); 
+		List<Employee> list = employeeRepository.findByIsHomeManager(false); 
 		if(!list.isEmpty())
 			return list;
 		else

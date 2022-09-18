@@ -32,6 +32,12 @@ public class AssignController {
 	@Autowired
 	AuthenticationClient authorisingClient;
 
+	/**
+	 * 
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean checkAuthentication(String requestTokenHeader) throws Exception {
 		try {
 			ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
@@ -42,6 +48,13 @@ public class AssignController {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws AuthorizationException
+	 * @throws Exception
+	 */
 	@GetMapping("/view/all")
 	public List<AssignManagers> getAllAssigns(
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader)
@@ -54,6 +67,13 @@ public class AssignController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/view/{id}")
 	public AssignManagers getAssignById(@PathVariable("id") int id,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -65,6 +85,13 @@ public class AssignController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param assignManagers
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/add")
 	public AssignManagers assignManager(@RequestBody AssignManagers assignManagers,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -76,6 +103,14 @@ public class AssignController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param assignManagers
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@PutMapping("/update/{id}")
 	public AssignManagers updateAssignedManager(@PathVariable("id") int id, @RequestBody AssignManagers assignManagers,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -87,6 +122,13 @@ public class AssignController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@DeleteMapping("/delete/{id}")
 	public AssignManagers deleteAssignsById(@PathVariable("id") int id,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {

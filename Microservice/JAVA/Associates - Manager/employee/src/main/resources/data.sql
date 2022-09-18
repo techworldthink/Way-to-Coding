@@ -14,7 +14,7 @@ insert into employee
 )
 values
 (
-   1,
+   101,
    'jobin@gmail.com',
    '2022-01-01',
    'JOBIN',
@@ -43,7 +43,7 @@ insert into employee
 )
 values
 (
-   2,
+   102,
    'employee@gmail.com',
    '2022-01-01',
    'Employee',

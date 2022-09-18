@@ -12,7 +12,7 @@ http://localhost:8003/manager/swagger-ui/index.html
 http://localhost:8083/manager-service/manager/swagger-ui/index.html
 
 #Activity
-http://localhost:8004/activity-service/swagger-ui/index.html
+http://localhost:8004/activity/swagger-ui/index.html
 
 
 
@@ -22,3 +22,5 @@ http://localhost:8761/
 
 
 # Zuul
+
+

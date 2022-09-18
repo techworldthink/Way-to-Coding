@@ -10,6 +10,11 @@ import com.project.manager.exception.InvalidNameException;
 @Component("managerValidator")
 public class ManagerValidator {
 	
+	/**
+	 * 
+	 * @param firstName
+	 * @throws Exception
+	 */
 	public void validateFirstName(String firstName) throws Exception {
 		String regex = "[A-Za-z]{0,30}$";
 		Pattern pattern = Pattern.compile(regex);
@@ -19,17 +24,32 @@ public class ManagerValidator {
 			throw new InvalidNameException("Invalid Name!");
 	}
 	
+	/**
+	 * 
+	 * @param data
+	 * @throws Exception
+	 */
 	public void validateNotNull(String data) throws Exception {
 		if(data == null)
 			throw new Exception("Null values Found Exception");
 	}
 	
+	/**
+	 * 
+	 * @param data
+	 * @throws Exception
+	 */
 	public void validateIsBoolean(String data) throws Exception {
 		boolean result = Boolean.parseBoolean(data);
 		if(!result)
 			throw new Exception("Boolean values expect");
 	}
 	
+	/**
+	 * 
+	 * @param email
+	 * @throws Exception
+	 */
 	public void validateEmail(String email) throws Exception {
 		String regex = "^(.+)@(.+)$";  
 		Pattern pattern = Pattern.compile(regex); 

@@ -23,7 +23,7 @@ public class ActivityMapping<Emploee> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int mappingId;
-	//private int employeeId;
+	private int employeeId;
 	private String createDate;
 	private String createdBy;
 	@ManyToOne

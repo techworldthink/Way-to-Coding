@@ -107,6 +107,16 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(exceptionDetail, HttpStatus.UNAUTHORIZED);
 	}
 
+	@ExceptionHandler(AssignDetailsGetException.class)
+	public ResponseEntity<ExceptionDetails> handleAssignDetailsGetException(AssignDetailsGetException ex) {
+		ExceptionDetails exceptionDetail = new ExceptionDetails();
+		exceptionDetail.setCode(HttpStatus.NOT_FOUND.value());
+		exceptionDetail.setMessage(ex.getMessage());
+		exceptionDetail.setTimestamp(LocalDateTime.now());
+		return new ResponseEntity<>(exceptionDetail, HttpStatus.NOT_FOUND);
+	}
+
+	// AssignDetailsGetException
 //	@ExceptionHandler(Exception.class)
 //	public ResponseEntity<ExceptionDetails> handleGeneralException(Exception ex) {
 //		ExceptionDetails exceptionDetail = new ExceptionDetails();

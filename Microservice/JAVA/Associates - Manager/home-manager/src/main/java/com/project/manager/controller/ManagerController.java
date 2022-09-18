@@ -2,6 +2,7 @@ package com.project.manager.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -32,6 +33,12 @@ public class ManagerController {
 	@Autowired
 	AuthenticationClient authorisingClient;
 
+	/**
+	 * 
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean checkAuthentication(String requestTokenHeader) throws Exception {
 		try {
 			ResponseEntity<AuthResponse> valid = authorisingClient.getValidity(requestTokenHeader);
@@ -42,6 +49,12 @@ public class ManagerController {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/view/all")
 	public List<Employee> getAllManagers(
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -54,6 +67,13 @@ public class ManagerController {
 
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/view/{id}")
 	public Employee getManagerById(@PathVariable("id") int id,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -65,6 +85,13 @@ public class ManagerController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@DeleteMapping("/delete/{id}")
 	public Employee deleteManagerById(@PathVariable("id") int id,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -76,6 +103,13 @@ public class ManagerController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param homeManager
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/add")
 	public Employee addManager(@RequestBody Employee homeManager,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
@@ -87,6 +121,14 @@ public class ManagerController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param homeManager
+	 * @param requestTokenHeader
+	 * @return
+	 * @throws Exception
+	 */
 	@PutMapping("/update/{id}")
 	public Employee updateManager(@PathVariable("id") int id, @RequestBody Employee homeManager,
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws Exception {
