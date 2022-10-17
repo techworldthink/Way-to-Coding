@@ -3,8 +3,8 @@
 #include <ESPAsyncWebServer.h>
 
 // Replace with your network credentials
-const char* ssid = "DEN;BB JOBIN";
-const char* password =  "jobin@1421";
+const char* ssid = "router_ssid";
+const char* password =  "router_pass";
 
 
 // Create AsyncWebServer object on port 80

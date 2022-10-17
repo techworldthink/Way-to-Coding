@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
-const char* wifi_network_ssid = "DEN;BB JOBIN";
-const char* wifi_network_password =  "jobin@1421";
+const char* wifi_network_ssid = "router_ssid";
+const char* wifi_network_password =  "router_pass";
 
 const char *soft_ap_ssid = "MyESP32AP";
 const char *soft_ap_password = "testpassword";
