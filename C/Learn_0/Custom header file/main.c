@@ -4,7 +4,7 @@
 
 
 int main() {
-	int i, sum, num, count = 0,a,b,c,d;
+	int i;
 	printf("Armstrong number between 11 and 1000 are:\n");
 	for (i = 11; i <= 1000; i++) {
 		if(isArmstrong(i)) {
