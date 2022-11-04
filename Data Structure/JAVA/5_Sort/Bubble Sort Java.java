@@ -1,4 +1,4 @@
-class LinearTimeComplexity {
+class BubbleSort {
 
         static int[] bubbleSort(int[] arr) {
                 int n = arr.length;
