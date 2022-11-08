@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
+using namespace std;
 
 struct node {
 	int data;
@@ -14,8 +15,8 @@ void insert_end() {
 	int data;
 	node *temp,*pre;
 
-	printf("\nEnter value : ");
-	scanf("%d",&data);
+	cout<<"\nEnter value : ";
+	cin>>data;
 
 	temp=(node*)malloc(sizeof(node));
 	temp->data=data;
@@ -37,8 +38,8 @@ void insert_first() {
 	int data;
 	node *temp;
 
-	printf("\nEnter value to insert : ");
-	scanf("%d",&data);
+	cout<<"\nEnter value to insert : ";
+	cin>>data;
 
 	temp=(node*)malloc(sizeof(node));
 	temp->data=data;
@@ -57,16 +58,16 @@ void insert_pos() {
 	int pos;
 	int count=2;
 	node *temp,*pre;
-	printf("\nEnter value to insert : ");
-	scanf("%d",&data);
-	printf("\nEnter Position to insert : ");
-	scanf("%d",&pos);
+	cout<<"\nEnter value to insert : ";
+	cin>>data;
+	cout<<"\nEnter Position to insert : ";
+	cin>>pos;
 	temp=head;
 	pre=(node*)malloc(sizeof(node));
 	pre->data=data;
 
 	if(head == NULL) {
-		printf("\nList is Empty \n");
+		cout<<"\nList is Empty \n";
 	} else if(pos == 1) {
 		pre->next=head;
 		head=pre;
@@ -90,14 +91,14 @@ void display() {
 	int count=1;
 	temp=head;
 	if(head == NULL) {
-		printf("\nList is Empty \n");
+		cout<<"\nList is Empty \n";
 	} else {
 		while(temp->next != NULL) {
-			printf("List [%d] : %d\n",count,temp->data);
+			cout<<"List ["<<count<<"] : "<<temp->data<<"\n";
 			temp=temp->next;
 			count++;
 		}
-		printf("List [%d] : %d\n",count,temp->data);
+		cout<<"List ["<<count<<"] : "<<temp->data<<"\n";
 	}
 }
 
@@ -107,11 +108,11 @@ void search() {
 	int count=1;
 	temp=head;
 	int data;
-	printf("Enter element to search : ");
-	scanf("%d",&data);
+	cout<<"Enter element to search : ";
+	cin>>data;
 
 	if(head == NULL) {
-		printf("\nList is Empty \n");
+		cout<<"\nList is Empty \n";
 	} else {
 		while(temp->next != NULL) {
 			if(data == temp->data) {
@@ -125,25 +126,25 @@ void search() {
 			flag=1;
 		}
 		if(flag==1) {
-			printf("\nFound\n");
+			cout<<"\nFound\n";
 		} else {
-			printf("\nnot found\n");
+			cout<<"\nnot found\n";
 		}
 	}
 }
 
-void 	delete_e() {
+void delete_pos() {
 	node *temp;
 	temp=head;
 	int count=0;
 	int pos;
-	printf("\nEnter position of element for deletion : ");
-	scanf("%d",&pos);
+	cout<<"\nEnter position of element for deletion : ";
+	cin>>pos;
 	int value;
 	int flag=0;
 
 	if(head == NULL) {
-		printf("\nList is Empty \n");
+		cout<<"\nList is Empty \n";
 		return;
 	}
 
@@ -169,9 +170,9 @@ void 	delete_e() {
 	}
 
 	if(flag==1)
-		printf("\nDeleted value is %d \n",value);
+		cout<<"\nDeleted value is "<<value<<"\n";
 	else
-		printf("\nDeletion failed\n");
+		cout<<"\nDeletion failed\n";
 
 
 }
@@ -179,15 +180,15 @@ void 	delete_e() {
 int main() {
 	int opt;
 	do {
-		printf("\n1)Insert in FIRST");
-		printf("\n2)Insert in END");
-		printf("\n3)Insert @ a Position");
-		printf("\n4)Display");
-		printf("\n5)Search");
-		printf("\n6)Delete");
-		printf("\n0)Quiet\n");
-		printf("\nChoose option : ");
-		scanf("%d",&opt);
+		cout<<"\n1)Insert in FIRST";
+		cout<<"\n2)Insert in END";
+		cout<<"\n3)Insert @ a Position";
+		cout<<"\n4)Display";
+		cout<<"\n5)Search";
+		cout<<"\n6)Delete";
+		cout<<"\n0)Quiet\n";
+		cout<<"\nChoose option : ";
+		cin>>opt;
 		switch(opt) {
 			case 1:
 				insert_first();
@@ -205,10 +206,10 @@ int main() {
 				search();
 				break;
 			case 6:
-				delete_e();
+				delete_pos();
 				break;
-deault:
-				printf("Invalid option ! Try Again..");
+			deault:
+				cout<<"Invalid option ! Try Again..";
 		}
 	} while(opt!=0);
 	return 0;
