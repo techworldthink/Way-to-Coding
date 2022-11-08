@@ -32,6 +32,10 @@ class IterationDemo {
                         }
                 });
 
+                //
+                System.out.print("\n.......foreach.....\n");
+                numbers.forEach(System.out::print);
+
         }
 }
 
