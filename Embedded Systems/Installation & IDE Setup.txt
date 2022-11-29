@@ -12,3 +12,10 @@ C:\CTOOLS\mingw32\bin
 Window -> Preferences -> C/C++ -> Environment -> Add
 MINGW_HOME -> C:\CTOOLS\mingw32
 MSYS_HOME -> C:\CTOOLS
+
+
+# host project
+File -> C/C++ -> C management build
+MinGW GCC
+
+
