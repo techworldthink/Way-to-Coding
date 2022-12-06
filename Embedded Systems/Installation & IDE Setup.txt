@@ -18,4 +18,10 @@ MSYS_HOME -> C:\CTOOLS
 File -> C/C++ -> C management build
 MinGW GCC
 
+# target project
+File -> New -> STM32 Project -> Board Selector -> STM32F4DISCOVERY
+
+C
+Executable
+Empty
 
