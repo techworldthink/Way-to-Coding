@@ -9,7 +9,7 @@ configure url and test
 
 /********* models.py ***********/
 
-class Project(model.MOdel)
+class Project(model.Model)
     startDate = models.DateFiled()
     endDate  = models.DateFiled()
     name = models.CharField()
@@ -28,7 +28,7 @@ class ProjectForm(forms.ModelForm):
 /********* view.py ***********/
 def addProject(request):
     form = ProjectForm()
-    if form.method=='POST':
+    if request.method=='POST':
         form=ProjectForm(request.POST)
         if form.is_valid():
             form.save()
