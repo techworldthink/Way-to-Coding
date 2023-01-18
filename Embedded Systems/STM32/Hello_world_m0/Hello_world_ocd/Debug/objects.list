@@ -1,0 +1,3 @@
+"./Src/main.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32l072czyx.o"
