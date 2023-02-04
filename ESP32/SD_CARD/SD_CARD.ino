@@ -1,3 +1,16 @@
+/*
+ *  Connections
+ *  SPI communication protocol
+ *  ESP32   SD
+ *  3.3v    3V3
+ *  GPIO5   CS
+ *  GPIO23  MOSI
+ *  GPIO18  CLK
+ *  GPIO19  MISO
+ *  GND     GND
+ */
+
+
 #include "FS.h"
 #include "SD.h"
 #include "SPI.h"
