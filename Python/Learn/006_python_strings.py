@@ -56,3 +56,16 @@ print(data.isdigit())     # False
 print(data.islower())     # True
 print(data.isupper())     # False
 print(data.isnumeric())   # False
+
+# formats
+fname = "tech"
+lname = "worldthink"
+data = "%s %s" %(fname,lname)
+print(data) # tech worldthink
+
+data = "{} {}".format(fname,lname)
+print(data) # tech worldthink
+
+data = f"{fname} {lname}"
+print(data) # tech worldthink
+
