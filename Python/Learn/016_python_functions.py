@@ -58,3 +58,12 @@ print_([1,2,3])
 def print_(data):
     return [data,data*2]
 print(print_([1,2,3]))
+
+
+#### Builtin Functions ####
+
+# enumerate()
+data = [1,2,4]
+for row in enumerate(data):
+    print(row[0],row[1]) # print index & values
+
