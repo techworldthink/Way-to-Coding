@@ -1,6 +1,7 @@
 # lambda
 # small anonymous function
 # multiple arguments & only one expression
+# In situations where an anonymous function is needed for a brief duration, use lambda functions.
 converter = lambda currency : currency * 60 
 print(converter(100))
 
