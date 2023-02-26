@@ -3,7 +3,6 @@
 class TestClass:
     data = 123
     num = 0
-    demo = 21
     
     # constructor
     def __init__(self,num):
@@ -22,7 +21,6 @@ class TestClass:
 # create object of class TestClass
 obj = TestClass(456)
 
-
 print(obj.data) # 123
 print(obj.num)  # 456
 # print an object
@@ -33,6 +31,6 @@ print(obj.get_data()) # 123
 obj.data = 89
 print(obj.data) # 89
 
-# delete object property
-del obj.demo
-# print(obj.demo)
+# delete object
+del obj
+
