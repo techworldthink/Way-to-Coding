@@ -1,6 +1,7 @@
 
 # create a class
 class TestClass:
+    # public attributes
     data = 123
     num = 0
     
