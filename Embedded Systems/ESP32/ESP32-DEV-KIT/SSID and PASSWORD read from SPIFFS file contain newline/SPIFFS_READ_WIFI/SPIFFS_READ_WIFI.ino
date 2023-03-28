@@ -63,6 +63,10 @@ void setup() {
     i++;
   }
   file.close();
+  
+  # remove unwanted whitespaces
+  s.trim();
+  p.trim();
 
   // Print credentials
   Serial.println(s.c_str());
