@@ -1,0 +1,16 @@
+set1=set()
+n=int(input("Enter total number of elements in set1: "))
+print("No:of elements in set 1:",n)
+for i in range(0,n):
+  ele=(input())
+  set1.add(ele)
+print(set1)
+set2=set()
+m=int(input("Enter total number of elements in set2: "))
+print("No:of elements in set 1:",m)
+for i in range(0,m):
+  ele=(input())
+  set2.add(ele)
+print(set2)
+set3=set1.union(set2)
+print(set3)
