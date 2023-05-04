@@ -18,5 +18,5 @@ dog = Dog()
 cat = Cat()
 
 animal_sound(animal) # Output: "Generic animal sound"
-animal_sound(dog)  # Output: "Woof!"
-animal_sound(cat)  # Output: "Meow!"
+animal_sound(dog)    # Output: "Woof!"
+animal_sound(cat)    # Output: "Meow!"
