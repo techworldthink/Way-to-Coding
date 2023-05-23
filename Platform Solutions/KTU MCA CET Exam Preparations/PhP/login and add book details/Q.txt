@@ -1,5 +1,0 @@
-8)Create a table login with fields username and password.
- Enter some values into the tables manually (Without using code).
- Create web page for login. After successful login redirect to a web page 
- which is used to enter the book details like bookid,bookname,author and no.of. 
-copies(Drop-down list) and these details are needs stored into a table named book.

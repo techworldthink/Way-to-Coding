@@ -1,4 +1,0 @@
-<div style="overflow-x:auto;">
-<table>
-</table>
-</div>

@@ -1,9 +1,0 @@
-//unix timestamps
-$unix_time=time();
-
-
-// unix to normal
-$time_now = date("Y-m-d H:i:s",$unix_time);
-
-
-

@@ -1,4 +1,0 @@
-# NavbarApp
-
-ng new navbarApp
-

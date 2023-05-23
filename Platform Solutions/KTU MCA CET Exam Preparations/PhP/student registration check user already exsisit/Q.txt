@@ -1,7 +1,0 @@
-4)Create a web page for student registration which contains 
-name,age, gender,and Educational qualifications
- (Display as a table for entering details), username and password.
- When user click on the submit button,
-  check whether the user name already exist and if no,
- enter the data in the database and display a message 
- 'Successfully Registered'.

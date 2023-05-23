@@ -1,3 +1,0 @@
-...................Installing The Client..........
-
-		pip install paho-mqtt

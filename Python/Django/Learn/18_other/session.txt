@@ -1,4 +1,0 @@
-
-
-count = request.session.get('count',0)
-request.session['count'] = 12

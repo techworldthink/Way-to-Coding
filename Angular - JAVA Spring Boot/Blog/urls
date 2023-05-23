@@ -1,7 +1,0 @@
-
-
-# DB
-http://localhost:8080/h2-console/
-
-# Sign up - POST
-http://localhost:8080/api/auth/signup

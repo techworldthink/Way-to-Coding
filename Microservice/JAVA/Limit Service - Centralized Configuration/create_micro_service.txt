@@ -1,5 +1,0 @@
-https://start.spring.io/
-
-
-# inside applications.properties file
-spring.config.import=optional:configserver:

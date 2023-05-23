@@ -1,9 +1,0 @@
-/********* views.py ***********/
-
-# test cookies
-def test(request):
-    request.session.set_test_cookie()
-    if request.session.test_cookie_worked():
-        request.session.delete_test_cookie()
-
-    return HttpResponse("test")

@@ -1,2 +1,0 @@
-tsc .\1_hello_world.ts
-node .\1_hello_world.js

@@ -1,1 +1,0 @@
-wc text.txt;

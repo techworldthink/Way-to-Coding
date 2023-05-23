@@ -1,6 +1,0 @@
-<form action="/post"  method="post" target="hidden-form"> 
-
-  <p><button class="submit" name="circle" value="6">Circle</button></p>
-  <p><button class="submit" name="square" value="4">Square</button></p>
-
-</form>

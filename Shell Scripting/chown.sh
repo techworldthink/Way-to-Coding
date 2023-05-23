@@ -1,1 +1,0 @@
-chown sherlock text.txt;

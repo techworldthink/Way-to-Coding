@@ -1,4 +1,0 @@
-
-npx create-react-app sample
-npm audit fix
-npm start

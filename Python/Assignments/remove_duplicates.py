@@ -1,5 +1,0 @@
-input_list = input("Enter a list of elements separated by spaces: ")
-lst = input_list.split()
-print (lst)
-unique_lst=set(lst)
-print(unique_lst)

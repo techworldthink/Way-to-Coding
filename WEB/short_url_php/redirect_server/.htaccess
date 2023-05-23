@@ -1,5 +1,0 @@
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule ^index\.php$ - [L]
-RewriteRule ([A-Za-z0-9-]+) ./index.php?id=$1 [L]
-</IfModule>

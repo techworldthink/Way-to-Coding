@@ -1,1 +1,0 @@
-echo "<script type=\"text/javascript\">location.href ='disconnect_settings.php';</script>";

@@ -1,6 +1,0 @@
-Right click on project
-Rus AS Maven build
-
-tomcat7:run
-
-http://localhost:8080/
