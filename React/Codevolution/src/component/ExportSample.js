@@ -3,7 +3,8 @@ import React from "react";
 function Export() {
   return (
     <div>
-      <h1>Export Component</h1>
+      <h1>Hello Export</h1>
+
     </div>
   );
 }

@@ -20,8 +20,9 @@ import FormHandler from './component/FormHandler';
 function App() {
   return (
     <div className="App">
-      <MyExport />
-      <ClassMyExport />
+      <MyExport /> {/* its a function component Exporting */}
+
+      <ClassMyExport /> {/* its a class component Exporting */}
       <PropsSmple name=" Welcome Jaseem" classRoom = "MCA" pg="Master Degree" />
       <PropsSmple name=" Welcome Adil"  classRoom = "CS" />
       <PropsSmple name=" Welcome Ameer" classRoom = "BCA"/>
