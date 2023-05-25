@@ -1,0 +1,6 @@
+function Decode(fPort, bytes, variables) {
+  var decoded = {};
+  decoded.temperature = bytes[0];
+  decoded.humidity = bytes[1];
+  return decoded;
+}
