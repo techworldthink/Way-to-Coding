@@ -1,3 +1,8 @@
+# Below line read inputs from user using map() function
+a = list(map(int,input("Enter the numbers : ").strip().split()))
+  
+print("List is - ", a)
+
 def radix_sort(arr):
     """
     Implementation of the radix sort algorithm for integers
@@ -27,3 +32,4 @@ def radix_sort(arr):
         
     return arr
 
+print ("The sorted list is =",radix_sort(a))
