@@ -1,12 +1,8 @@
-right click on the project -->properties -> expand C/C++ build --> Settings --> Tool settings -->MCU settings ->
-
-
-
-and set
-
-unit -> None
-point-ABI -> Software Implementation (-mfloat0-ani=soft)
-
+How to disable FPU?
+Project right click -> Properties -> C/C++ Build -> Settings ->
+Tool Settings -> MCU Settings -> 
+Floating point unit session => None
+Floating-point ABI => Software Implementation (-mfloat0-ani=soft)
 
 
 clean & build again
