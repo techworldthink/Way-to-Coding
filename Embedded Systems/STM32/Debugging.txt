@@ -1,0 +1,9 @@
+Single stepping
+Disassembly
+Register windows
+Breakpoints
+Expression and variables windows(stack frame info)
+Memory browsers - (FLASH,SRAM,ROM)
+Call stack & fault analyzers
+Data watch points - 
+Special function regsters
