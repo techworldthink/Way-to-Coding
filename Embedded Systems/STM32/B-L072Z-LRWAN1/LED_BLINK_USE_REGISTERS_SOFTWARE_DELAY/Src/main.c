@@ -41,8 +41,8 @@ int main(void){
 
 	// Configure the mode of the IO pin as output
 	// clear 11th and 10th bit positions (CLEAR)
-	// 0xFFFFF7FF
-	//*pPortBModeReg = *pPortBModeReg & 0xFFFFF7FF;
+	// 0xFFFFF3FF
+	//*pPortBModeReg = *pPortBModeReg & 0xFFFFF3FF;
 	/*
 	*pPortBModeReg &= ~(1 << 10);
 	*pPortBModeReg &= ~(1 << 11);
