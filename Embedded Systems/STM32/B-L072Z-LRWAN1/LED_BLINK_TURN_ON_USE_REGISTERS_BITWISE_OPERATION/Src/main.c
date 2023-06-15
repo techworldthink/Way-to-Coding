@@ -47,7 +47,7 @@ int main(void){
 	*pPortBModeReg &= ~(1 << 10);
 	*pPortBModeReg &= ~(1 << 11);
 	*/
-	*pPortBModeReg &= ~(3 << 10);
+	*pPortBModeReg &= ~(3 << 10);	
 	// make 10th bit position as 1 (SET)
 	*pPortBModeReg |= (1 << 10);
 

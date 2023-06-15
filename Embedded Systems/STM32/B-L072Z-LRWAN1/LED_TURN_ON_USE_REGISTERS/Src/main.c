@@ -40,10 +40,10 @@ int main(void){
 
 	// Configure the mode of the IO pin as output
 	// clear 11th and 10th bit positions (CLEAR)
-	// 0xFFFFF7FF
-	*pPortBModeReg = *pPortBModeReg & 0xFFFFF7FF;
+	// 0xFFFFF3FF
+	*pPortBModeReg = *pPortBModeReg & 0xFFFFF3FF;
 	// make 10th bit position as 1 (SET)
-	*pPortBModeReg = *pPortBModeReg | 0x00000100;
+	*pPortBModeReg = *pPortBModeReg | 0x00000400;
 
 	// Set 5th bit of the output data register to make I/O pin-5 HIGH
 	*pPortBOutReg = *pPortBOutReg | 0x0020;
