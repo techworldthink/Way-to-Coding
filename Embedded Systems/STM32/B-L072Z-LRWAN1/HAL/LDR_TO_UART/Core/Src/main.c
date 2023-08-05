@@ -5,9 +5,6 @@
 ADC_HandleTypeDef hadc;
 UART_HandleTypeDef huart2;
 
-uint16_t readValue;
-
-
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC_Init(void);
