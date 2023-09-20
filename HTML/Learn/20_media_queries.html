@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design Example</title>
+    
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Media Queries for Responsive Design -->
+    <style>
+        /* CSS for screens with a maximum width of 768 pixels (Mobile) */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            .container {
+                width: 90%;
+            }
+        }
+        
+        /* CSS for screens with a minimum width of 769 pixels and a maximum width of 1024 pixels (Tablet) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+            .container {
+                width: 80%;
+            }
+        }
+        
+        /* CSS for screens with a minimum width of 1025 pixels (Desktop) */
+        @media (min-width: 1025px) {
+            body {
+                font-size: 20px;
+            }
+            .container {
+                width: 70%;
+            }
+        }
+        
+        /* CSS for landscape orientation */
+        @media (orientation: landscape) {
+            body {
+                background-color: #e0e0e0;
+            }
+        }
+        
+        /* CSS for high-resolution devices (e.g., Retina displays) */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo {
+                background-image: url('logo@2x.png');
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your responsive web page content goes here -->
+    <header>
+        <h1>My Responsive Website</h1>
+    </header>
+    <div class="container">
+        <p>This is a responsive website content.</p>
+    </div>
+    <footer>
+        &copy; 2023 My Website
+    </footer>
+</body>
+</html>
