@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map Example</title> <!-- Title for the HTML document -->
+</head>
+<body>
+    <img src="image.jpg" alt="Image not available"> <!-- An image with alternative text in case the image cannot be displayed -->
+
+    <!-- Heading for the image map section -->
+    <h1>Click on Different Parts of the Image</h1>
+    
+    <!-- Example image with an image map -->
+    <img src="https://kinsta.com/wp-content/uploads/2021/04/clickable-elements-too-close-together.png"
+        alt="Example Image" usemap="#image-map" height="200">
+
+    <!-- Define the image map using the map element -->
+    <map name="image-map">
+        <!-- Define clickable areas using area elements -->
+        <!-- The 'shape' attribute defines the shape of the clickable area -->
+        <!-- The 'coords' attribute specifies the coordinates of the clickable area -->
+        <!-- The 'href' attribute specifies the URL to navigate to when the area is clicked -->
+        <area shape="rect" coords="0,0,100,100" href="link1.html" alt="Link 1">
+        <area shape="circle" coords="150,100,50" href="link2.html" alt="Link 2">
+        <area shape="poly" coords="0,100,100,200,50,300" href="link3.html" alt="Link 3">
+        <area shape="default" href="link4.html" alt="Link 4">
+    </map>
+</body>
+</html>

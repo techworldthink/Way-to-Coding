@@ -13,6 +13,7 @@ void sample_task_1(void *arg){
 
 void setup() {
   Serial.begin(115200);
+  // function_name, description, stack_size, function_parameter, priority, 
   xTaskCreate(sample_task_1, "sample_task_1", 4096, NULL, 10, &TaskHandler);
 }
 

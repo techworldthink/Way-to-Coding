@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture element</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Element Example</title>
+</head>
+<body>
+    <h1>Responsive Image Using the Picture Element</h1>
+    <picture>
+        <!-- WebP image source for modern browsers that support WebP format -->
+        <source srcset="image.webp" type="image/webp">
+        <!-- JPEG image source for browsers that don't support WebP -->
+        <img src="image.jpg" alt="A sample image">
+    </picture>
+
+    <h1>Responsive Image Based on Window Width</h1>
+    <picture>
+        <!-- Image source for screens with a viewport width less than 600px -->
+        <source media="(max-width: 599px)" srcset="image-small.jpg">
+        <!-- Image source for screens with a viewport width between 600px and 1023px -->
+        <source media="(min-width: 600px) and (max-width: 1023px)" srcset="image-medium.jpg">
+        <!-- Default image source for screens with a viewport width of 1024px or more -->
+        <source srcset="image-large.jpg">
+        <!-- Fallback image for browsers that don't support the <picture> element -->
+        <img src="image-fallback.jpg" alt="A sample image">
+    </picture>
+
+    
+</body>
+</html>
+</body>
+</html>

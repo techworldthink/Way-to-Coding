@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper Links</title>
+
+    <!-- Internal CSS -->
+    <style>
+        /* CSS for all anchor (<a>) tags */
+        a,button {
+            display: block;
+            /* Display as block element */
+            text-decoration: none;
+            /* Remove underlines */
+            margin-top: .5em;
+            /* Add margin space at the top */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Anchor Tag 1: _self target -->
+    <a href="techworldthink" target="_self">Click here (Opens in the same frame or window)</a>
+
+    <!-- Anchor Tag 2: _blank target -->
+    <a href="techworldthink" target="_blank">Click here (Opens in a new browser window or tab)</a>
+
+    <!-- Anchor Tag 3: _parent target -->
+    <a href="techworldthink" target="_parent">Click here (Opens in the parent frame or window)</a>
+
+    <!-- Anchor Tag 4: _top target -->
+    <a href="techworldthink" target="_top">Click here (Opens in the top-level frame or window)</a>
+
+    <!-- Anchor Tag with an Image -->
+    <a href="default.asp">
+        <img src="https://t3.ftcdn.net/jpg/03/00/51/50/360_F_300515099_1jYNTGOjSu02To9UvpPdkAiAjE1wXbIP.jpg"
+            alt="HTML tutorial" style="width:150px">
+    </a>
+
+    <!-- Mailto Link -->
+    <a href="mailto:someone@example.com">Send email</a>
+
+    <!-- Button with JavaScript Action -->
+    <button onclick="redirectToSomewhere()">Button onclick - Javascript</button>
+
+    <!-- Anchor Tag with Title Attribute -->
+    <a href="https://www.w3schools.com/html/" title="title here">Click here (title included)</a>
+
+    <script>
+        // JavaScript function to redirect to the tutorial page
+        function redirectToSomewhere() {
+            window.location.href = "default.asp";
+        }
+    </script>
+</body>
+
+</html>
