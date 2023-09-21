@@ -31,14 +31,58 @@
         <input type="submit" value="submit">
     </form>
 
-    <form>
+    <form> <!-- Start of the form element -->
         <fieldset>
-            <legend>User Information:</legend>
-            <label for="name">Enter name</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="pass">Enter Password</label><br>
-            <input type="Password" id="pass" name="pass"><br>
-            <input type="submit" value="submit">
+            <legend>User Information:</legend> <!-- Fieldset legend for grouping form elements -->
+            <label for="name">Enter name</label><br> <!-- Label for the "name" input field -->
+            <input type="text" id="name" name="name"><br> <!-- Text input for the user's name -->
+            <label for="pass">Enter Password</label><br> <!-- Label for the "pass" input field -->
+            <input type="Password" id="pass" name="pass"><br> <!-- Password input for the user's password -->
+            <input type="submit" value="submit"> <!-- Submit button to send the form data -->
         </fieldset>
+    </form> <!-- End of the form element -->
+
+
+
+    <form action="submit.php" method="POST"> <!-- Form with action and method attributes -->
+        <fieldset>
+            <legend>User Information:</legend> <!-- Fieldset legend for grouping form elements -->
+
+            <!-- Text Input with name and id attributes -->
+            <label for="username">Enter username</label><br>
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+
+            <!-- Password Input with name attribute -->
+            <label for="password">Enter Password</label><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+
+            <!-- Disabled Input -->
+            <label for="disabledField">Disabled Field</label><br>
+            <input type="text" id="disabledField" name="disabledField" disabled><br>
+
+            <!-- Read-only Input -->
+            <label for="readOnlyField">Read-only Field</label><br>
+            <input type="text" id="readOnlyField" name="readOnlyField" value="Read-only text" readonly><br>
+
+            <!-- Input with Initial Value, Size, and Maxlength Attributes -->
+            <label for="email">Email Address</label><br>
+            <input type="email" id="email" name="email" value="user@example.com" size="30" maxlength="50"><br>
+
+            <!-- Select Box with Multiple Attribute -->
+            <label for="colors">Select Colors</label><br>
+            <select id="colors" name="colors" multiple>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select><br>
+
+            <!-- Autocomplete Off for Input -->
+            <label for="disableAutocomplete">Disable Autocomplete</label><br>
+            <input type="text" id="disableAutocomplete" name="disableAutocomplete" autocomplete="off"><br>
+        </fieldset>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
     </form>
+
 </body>
