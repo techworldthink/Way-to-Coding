@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        input{
+        input {
             display: block;
             margin: 1em;
         }
@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <input type="button">
     <input type="checkbox">
     <input type="color">
@@ -35,6 +36,64 @@
     <input type="time">
     <input type="url">
     <input type="week">
+
+    <!-- Text Input with various attributes -->
+    <input type="text" <!-- Specifies the input type as text -->
+    name="username" <!-- Assigns a name to the input field -->
+    id="username" <!-- Provides a unique identifier for the input -->
+    value="JohnDoe" <!-- Sets the initial value of the input -->
+    placeholder="Enter your name" <!-- Provides a placeholder hint -->
+    required <!-- Makes the input required -->
+    disabled <!-- Disables the input field -->
+    readonly <!-- Makes the input read-only -->
+    size="40" <!-- Sets the visible width in characters -->
+    maxlength="100" <!-- Specifies the maximum allowed characters -->
+    autofocus <!-- Focuses on the input field when the page loads -->
+    autocomplete="off" <!-- Disables browser auto-completion -->
+    form="myForm" <!-- Associates with a specific form using its ID -->
+    pattern="[A-Za-z]+" <!-- Validates the input using a regex pattern -->
+    minlength="5" <!-- Specifies the minimum number of characters -->
+    >
+
+    <!-- File Input with multiple and accept attributes -->
+    <input type="file" <!-- Specifies the input type as file -->
+    name="attachments" <!-- Assigns a name to the file input -->
+    multiple <!-- Allows selection of multiple files -->
+    accept=".pdf,.doc" <!-- Specifies allowed file types -->
+    >
+
+    <!-- Number Input with min, max, and step attributes -->
+    <input type="number" <!-- Specifies the input type as number -->
+    name="quantity" <!-- Assigns a name to the number input -->
+    min="1" <!-- Sets the minimum allowed value -->
+    max="100" <!-- Sets the maximum allowed value -->
+    step="0.5" <!-- Defines the step increment -->
+    >
+
+    <!-- Email Input with list and datalist attributes -->
+    <input type="email" <!-- Specifies the input type as email -->
+    name="email" <!-- Assigns a name to the email input -->
+    list="emailOptions" <!-- Associates with a datalist -->
+    >
+    <!-- Datalist providing predefined email options -->
+    <datalist id="emailOptions">
+        <option value="user@example.com">
+        <option value="test@example.com">
+        <option value="admin@example.com">
+    </datalist>
+
+</body>
+
+</html>
+This HTML <input> element combines various attributes like type, name, id, value, placeholder, required, disabled,
+readonly, size, maxlength, autofocus, autocomplete, and form, each with comments explaining its purpose.
+
+
+
+
+
+
+
 </body>
 
 </html>

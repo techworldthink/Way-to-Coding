@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Example</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+        // Get the canvas element using its id
+        var canvas = document.getElementById("myCanvas");
+
+        // Check if the browser supports the HTML5 canvas element
+        if (canvas.getContext) {
+            // Get the 2D drawing context
+            var ctx = canvas.getContext("2d");
+
+            // Set the fill color to red
+            ctx.fillStyle = "red";
+
+            // Draw a filled rectangle at coordinates (50, 50) with width 100 and height 50
+            ctx.fillRect(50, 50, 100, 50);
+        } else {
+            // Canvas not supported, provide a fallback or error message
+            document.write("Canvas not supported in this browser.");
+        }
+    </script>
+</body>
+</html>
