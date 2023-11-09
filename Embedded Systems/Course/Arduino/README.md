@@ -3,11 +3,11 @@
 1. Introduction to Arduino 
 2. Getting Started with Arduino IDE
     * Installation
-        * Download the Arduino IDE suitable for your operating system (Windows, macOS, or Linux).
+        * Download the Arduino IDE.
         * Install the Arduino IDE software.
     * Connecting Your Arduino Board
         * Use a USB cable to connect your Arduino board to your computer.
-        *  Install necessary drivers (if required).
+        * Install necessary drivers (if required).
     * Opening the Arduino IDE
         * Launch the Arduino software on your computer.
     * Setting Up the Arduino IDE
@@ -35,14 +35,20 @@
     * Functions and their implementation.
     * Arrays and strings in Arduino programming.
     * Working with libraries and creating your own functions.
-7. Interfacing with Displays
+7. Interfacing with Switches and Buttons
+    * Understanding digital inputs and debouncing.
+    * Implementing push-button switches and toggle switches.
+8. LED Interfacing and Resistor Calculation
+    * Understanding the importance of current-limiting resistors when using LEDs.
+    * Calculating resistor values for safe LED operation with Arduino pins.
+8. Interfacing with Displays
     * LCD
     * OLED
-8. Wireless Communication
+9. Wireless Communication
     * Bluetooth
     * Wi-Fi
-9. Data Logging and SD Cards
+10. Data Logging and SD Cards
     * Logging sensor data to an SD card.
     * Storing and retrieving data for analysis.
-10. Real-time Operating System (RTOS) on Arduino
+11. Real-time Operating System (RTOS) on Arduino
     * Introduction to multitasking and RTOS concepts on Arduino.
