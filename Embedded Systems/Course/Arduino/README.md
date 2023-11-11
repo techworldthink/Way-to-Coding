@@ -11,7 +11,6 @@
     * Monitoring Serial Output 
 3. Serial Communication
     * Establishing serial communication between Arduino and a computer.
-    * Using Serial Monitor for debugging and data transfer.
 4. Basics of Arduino Programming
     * Structure of an Arduino program
     * Variables, data types, and operators.
