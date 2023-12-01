@@ -1,4 +1,6 @@
-<pre>
+
+## 1. DDL (Data Definition Language)
+```sql
 /*
  * DDL
  */
@@ -12,19 +14,20 @@ CREATE TABLE employee(
     name 		VARCHAR(30),
     salary 		INT,
     doj 		DATE,
-    leaveDays 	INT
+    leaveDays           INT
  );
 DESCRIBE employee;
  
 ALTER TABLE employee ADD (userStatus INT);
-DESCRIBE employee;
 ALTER TABLE employee MODIFY userStatus VARCHAR(2);
 ALTER TABLE employee DROP COLUMN userStatus;
-DESCRIBE employee;
 
-# TRUNCATE TABLE employee;
+TRUNCATE TABLE employee;
+DROP TABLE IF EXISTS employee;
+```
 
-
+## 2. DML (Data Manipulation Language)
+```sql
 /*
  * DML
  */
@@ -71,9 +74,8 @@ SELECT AVG(salary) FROM employee;
 SELECT SUM(salary) FROM employee;
 SELECT MIN(salary) FROM employee;
 SELECT MAX(salary) FROM employee;
+```
 
 
 
-</pre>
- 
  
