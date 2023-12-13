@@ -1,26 +1,25 @@
 # Way-to-Coding
 
 ## languages
-
-#### C
-#### C++
-#### c#
-#### Python
-#### Java
-#### PHP
-#### MySQL
-#### PLSQL-ORACLE
-#### Shell Script
-#### React
-#### Angular
-#### HTML5
-#### XML
-#### Javascript
-#### Ajax
-#### Arduino
-#### ESP32
-#### Data Structure
-#### GIT
+* C
+* C++
+* C#
+* Python
+* Java
+* PHP
+* MySQL
+* PLSQL-ORACLE
+* Shell Script
+* React
+* Angular
+* HTML5
+* XML
+* Javascript
+* Ajax
+* Arduino
+* ESP32
+* Data Structure
+* GIT
 
 
 
