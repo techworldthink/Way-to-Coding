@@ -3,26 +3,28 @@
 ## languages
 * C
 * C++
-* C#
-* Python
 * Java
+* Python
 * PHP
 * MySQL
 * PLSQL-ORACLE
 * Shell Script
+* Type Script
+* Javascript
 * React
 * Angular
 * HTML5
+* CSS
 * XML
-* Javascript
 * Ajax
 * Arduino
 * ESP32
+* STM32
 * Data Structure
 * GIT
 
 
-## Contribution Guidelines🏗
+## Contribution Guidelines
 
 To start contributing, follow the below guidelines: 
 
@@ -34,7 +36,7 @@ To start contributing, follow the below guidelines:
 git clone https://github.com/<your_user_name>/Way-to-Coding.git
 ```
 
-**3.** Create a folder with your name: .
+**3.** Create a folder with your name:
 
 ```
 cd folder_name
