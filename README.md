@@ -6,8 +6,6 @@
 * Java
 * Python
 * PHP
-* MySQL
-* PLSQL-ORACLE
 * Shell Script
 * Type Script
 * Javascript
@@ -17,6 +15,8 @@
 * CSS
 * XML
 * Ajax
+* MySQL
+* PLSQL-ORACLE
 * Arduino
 * ESP32
 * STM32
