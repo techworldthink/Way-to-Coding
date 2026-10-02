@@ -1,57 +1,21 @@
-# Django Full Stack Development Workshop — Complete Course Material
+# 3-Day Full Stack Development Workshop
 
-## Audience
-B.Tech students with basic programming knowledge.
+**Duration:** 3 Days × 1.5 Hours  
+**Technology:** Python + Django + HTML/CSS + SQLite  
+**Approach:** Practical, project-based
 
-## Duration
-3 days × 1.5 hours = 4.5 hours live workshop.
+Students build one Task Manager application across all three days.
 
-## Important
-This is designed as a **self-contained practical course**, not as presentation slides.
+```text
+DAY 1 → Django + Database
+DAY 2 → Forms + CRUD + UI
+DAY 3 → Login + User-specific data + Dashboard + GitHub
+```
 
-A student should be able to:
-1. Read the explanation.
-2. Follow the commands.
-3. Create the files.
-4. Copy/type the complete code.
-5. Run the project.
-6. Check the expected result.
-7. Complete the homework.
-8. Continue even if the instructor is not explaining every line.
+Final flow:
 
-## Project
-We build a small multi-user **Campus Task Manager**.
+```text
+Register → Login → Dashboard → Create → View → Edit → Delete → Logout
+```
 
-Final features:
-- Registration
-- Login/logout
-- Dashboard
-- Create task
-- View tasks
-- Edit task
-- Delete task
-- Mark task complete
-- Search/filter
-- User-specific tasks
-- SQLite database
-- Bootstrap UI
-
-## Technology
-- Python
-- Django
-- HTML
-- CSS
-- Bootstrap
-- SQLite
-- Git/GitHub
-
-## Recommended order
-
-1. `00-START-HERE.md`
-2. `DAY-1/`
-3. `DAY-2/`
-4. `DAY-3/`
-5. `REFERENCE/`
-6. `COMPLETE-PROJECT/`
-
-The `COMPLETE-PROJECT/` folder contains the complete final source code. It is provided as a reference/checkpoint, not as a replacement for building the project step by step.
+This material intentionally stays within the agreed syllabus. It does not require REST APIs, Docker, PostgreSQL, deployment, or advanced architecture.

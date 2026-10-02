@@ -1,71 +1,57 @@
 # Command Reference
 
-## Environment
-
-```bash
-python -m venv venv
-```
+## Virtual environment
 
 Windows:
-
-```text
+```bash
+python -m venv venv
 venv\Scripts\activate
 ```
 
-Linux/macOS:
-
+macOS/Linux:
 ```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
-## Packages
-
+## Install Django
 ```bash
 pip install django
-pip freeze > requirements.txt
 ```
 
-## Project
-
+## Project and app
 ```bash
-django-admin startproject campus_manager .
+django-admin startproject config .
 python manage.py startapp tasks
 ```
 
-## Development
-
+## Run
 ```bash
 python manage.py runserver
 ```
 
 ## Database
-
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
 ## Admin
-
 ```bash
 python manage.py createsuperuser
 ```
 
-## Diagnostics
-
+## Requirements
 ```bash
-python manage.py check
-python manage.py showmigrations
+pip freeze > requirements.txt
 ```
 
 ## Git
-
 ```bash
 git init
-git status
 git add .
-git commit -m "Workshop project"
+git commit -m "Complete Django task manager"
 git branch -M main
-git remote add origin YOUR_REPOSITORY_URL
+git remote add origin YOUR_GITHUB_REPOSITORY_URL
 git push -u origin main
 ```
