@@ -168,7 +168,7 @@ Open `config/settings.py` and add these settings:
 
 ```python
 LOGIN_URL = "/login/"
-LOGIN_REDIRECT_URL = "/dashboard/"
+LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/login/"
 ```
 
