@@ -10,17 +10,22 @@ from django.contrib.auth.decorators import login_required
 # def home(request):
 #     return render(request, 'tasks/home.html')
 
+@login_required
 def home(request):
-    tasks = Task.objects.all().order_by("-created_at")
-    return render(request, "tasks/home.html", {"tasks": tasks})
+    tasks = Task.objects.filter(
+        owner=request.user
+    ).order_by("-created_at")
 
+    return render(request, "tasks/home.html", {"tasks": tasks})
 
 
 def task_create(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
         if form.is_valid():
-            form.save()
+            task = form.save(commit=False)
+            task.owner = request.user
+            task.save()
             return redirect("home")
     else:
         form = TaskForm()
@@ -30,7 +35,7 @@ def task_create(request):
 
 
 def task_edit(request, pk):
-    task = get_object_or_404(Task, pk=pk)
+    task = get_object_or_404(Task, pk=pk,owner=request.user)
 
     if request.method == "POST":
         form = TaskForm(request.POST, instance=task)
