@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -74,3 +76,8 @@ def register(request):
         form = RegisterForm()
 
     return render(request, "tasks/register.html", {"form": form})
+
+
+@login_required
+def dashboard(request):    
+    return render(request, "tasks/dashboard.html")
