@@ -11,7 +11,9 @@
             {% for task in tasks %}
                 <li>
                     <strong>{{ task.title }}</strong>
-                    - {{ task.description }}
+                    - {{ task.description }} 
+                    - <a href="{% url 'task_edit' task.pk %}">Edit</a>
+                    - <a href="{% url 'task_delete' task.pk %}">Delete</a>
                 </li>
             {% endfor %}
         </ul>
