@@ -1,2 +1,34 @@
+
+{% extends "tasks/base.html" %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+
 <h1>Dashboard</h1>
-<p>Welcome to your Task Manager!</p>
+
+<p>Welcome, {{ request.user.username }}!</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h2>{{ total }}</h2>
+            <p>Total Tasks</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h2>{{ completed }}</h2>
+            <p>Completed</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h2>{{ pending }}</h2>
+            <p>Pending</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

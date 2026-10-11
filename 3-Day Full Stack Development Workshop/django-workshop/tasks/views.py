@@ -84,5 +84,15 @@ def register(request):
 
 
 @login_required
-def dashboard(request):    
-    return render(request, "tasks/dashboard.html")
+def dashboard(request):
+    tasks = Task.objects.filter(owner=request.user)
+
+    total = tasks.count()
+    completed = tasks.filter(completed=True).count()
+    pending = tasks.filter(completed=False).count()
+
+    return render(request, "tasks/dashboard.html", {
+        "total": total,
+        "completed": completed,
+        "pending": pending,
+    })
