@@ -1,9 +1,31 @@
-<h1>Add Task</h1>
+{% extends "tasks/base.html" %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Task</button>
-</form>
+{% block title %}Task Form{% endblock %}
 
-<a href="{% url 'home' %}">Back</a>
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+
+        <h1 class="mb-4">
+            {% if task %}Edit Task{% else %}Add Task{% endif %}
+        </h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary">
+                Save Task
+            </button>
+
+            <a href="{% url 'home' %}" class="btn btn-secondary">
+                Cancel
+            </a>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

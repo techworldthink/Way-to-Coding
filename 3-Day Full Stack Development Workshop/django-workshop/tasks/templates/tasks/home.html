@@ -1,24 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Task Manager</title>
-</head>
-<body>
-    <h1>Task Manager</h1>
+{% extends "tasks/base.html" %}
 
-    {% if tasks %}
-        <ul>
-            {% for task in tasks %}
-                <li>
-                    <strong>{{ task.title }}</strong>
-                    - {{ task.description }} 
-                    - <a href="{% url 'task_edit' task.pk %}">Edit</a>
-                    - <a href="{% url 'task_delete' task.pk %}">Delete</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No tasks found.</p>
-    {% endif %}
-</body>
-</html>
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>My Tasks</h1>
+
+    <a href="{% url 'task_create' %}" class="btn btn-primary">
+        Add Task
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+
+        {% for task in tasks %}
+            <div class="border-bottom py-3">
+                <h5>{{ task.title }}</h5>
+
+                <p class="text-muted">
+                    {{ task.description }}
+                </p>
+
+                <a href="{% url 'task_edit' task.pk %}"
+                   class="btn btn-sm btn-primary">
+                    Edit
+                </a>
+
+                <a href="{% url 'task_delete' task.pk %}"
+                   class="btn btn-sm btn-danger">
+                    Delete
+                </a>
+            </div>
+        {% empty %}
+            <p class="text-muted mb-0">
+                No tasks available. Click Add Task to create one.
+            </p>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
